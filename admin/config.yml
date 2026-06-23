@@ -16,6 +16,8 @@ collections:
     create: true
     delete: true
     slug: "{{slug}}"
+    extension: "json"
+    format: "json"
     summary: "{{name}} — {{industry}}"
     identifier_field: name
     fields:
