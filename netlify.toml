@@ -2,14 +2,8 @@
   command = "node build-index.js"
   publish = "."
 
-[[headers]]
-  for = "/projects/*"
-  [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
-    Access-Control-Allow-Origin = "*"
-
-[[headers]]
-  for = "/admin/*"
-  [headers.values]
-    X-Frame-Options = "SAMEORIGIN"
-    X-Content-Type-Options = "nosniff"
+[[redirects]]
+  from = "/admin"
+  to = "/admin/"
+  status = 301
+  force = false

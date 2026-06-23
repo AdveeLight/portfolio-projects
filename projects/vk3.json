@@ -1,0 +1,36 @@
+{
+  "id": "vk3",
+  "name": "VK3 Fashion",
+  "category": "Fashion Brand",
+  "industry": "Fashion Brand",
+  "year": "",
+  "role": "Logo Design · Visual Design · Flyer Design",
+  "tag": "Logo & Visual Identity",
+  "desc": "An early-stage fashion brand seeking a clear, confident and versatile logo as well as a flyer design to promote their business. The challenge was delivering a strong, recognizable mark that could work across digital and print contexts from day one — with no visual equity to build on.",
+  "brief": "An early-stage fashion brand seeking a clear, confident and versatile logo as well as a flyer design to promote their business. The challenge was delivering a strong, recognizable mark that could work across digital and print contexts from day one — with no visual equity to build on.",
+  "overview": "An early-stage fashion brand seeking a clear, confident and versatile logo as well as a flyer design to promote their business. The challenge was delivering a strong, recognizable mark that could work across digital and print contexts from day one — with no visual equity to build on.",
+  "focus": "Clarity, confidence, recognizability.",
+  "process": [],
+  "deliverables": [
+    "Brand Strategy",
+    "Visual Identity",
+    "Logo Design",
+    "Versatile Logo Design",
+    "Flyer Design"
+  ],
+  "skills": [
+    "Brand Strategy",
+    "Visual Identity",
+    "Logo Design",
+    "Versatile Logo Design",
+    "Flyer Design"
+  ],
+  "outcome": "",
+  "color1": "#1A1A1A",
+  "color2": "#0A0A0A",
+  "accent": "#FF4400",
+  "accentLight": "#FF7A47",
+  "svgContent": "<g transform=\"translate(300,170)\"><polygon points=\"0,-55 48,27 -48,27\" fill=\"none\" stroke=\"#FF4400\" stroke-width=\"2.5\"/><text x=\"0\" y=\"12\" text-anchor=\"middle\" font-family=\"Inter,sans-serif\" font-size=\"22\" fill=\"#FF7A47\" font-weight=\"700\">VK3</text></g><text x=\"300\" y=\"270\" text-anchor=\"middle\" font-family=\"Inter,sans-serif\" font-size=\"30\" fill=\"#F3F3F1\" font-weight=\"700\">VK3 FASHION</text><text x=\"300\" y=\"298\" text-anchor=\"middle\" font-family=\"JetBrains Mono,monospace\" font-size=\"11\" letter-spacing=\"3\" fill=\"#FF4400\">LOGO & VISUAL IDENTITY</text><line x1=\"200\" y1=\"320\" x2=\"400\" y2=\"320\" stroke=\"#FF4400\" stroke-width=\"1\" opacity=\".4\"/><line x1=\"200\" y1=\"338\" x2=\"360\" y2=\"338\" stroke=\"#F3F3F1\" stroke-width=\"1\" opacity=\".2\"/>",
+  "heroImage": "",
+  "images": []
+}

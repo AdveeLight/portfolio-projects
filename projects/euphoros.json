@@ -1,0 +1,36 @@
+{
+  "id": "euphoros",
+  "name": "Euphoros Agrocorp Greentech",
+  "category": "Agriculture & Green Technology",
+  "industry": "Agriculture & Green Technology",
+  "year": "",
+  "role": "Lead Brand Strategist, Logo & Identity Designer",
+  "tag": "Brand Strategy & Identity",
+  "desc": "A growth-oriented brand architecture and mark for a sustainability-driven agritech company. The identity was designed to flex across packaging and field materials, conveying both natural roots and modern green technology ambitions.",
+  "brief": "A growth-oriented brand architecture and mark for a sustainability-driven agritech company. The identity was designed to flex across packaging and field materials, conveying both natural roots and modern green technology ambitions.",
+  "overview": "A growth-oriented brand architecture and mark for a sustainability-driven agritech company. The identity was designed to flex across packaging and field materials, conveying both natural roots and modern green technology ambitions.",
+  "focus": "Growth, sustainability, flexibility across packaging and environmental contexts.",
+  "process": [],
+  "deliverables": [
+    "Brand Strategy",
+    "Logo Design",
+    "Brand Architecture",
+    "Visual Identity",
+    "Brand Guidelines"
+  ],
+  "skills": [
+    "Brand Strategy",
+    "Logo Design",
+    "Brand Architecture",
+    "Visual Identity",
+    "Brand Guidelines"
+  ],
+  "outcome": "",
+  "color1": "#666666",
+  "color2": "#2E2E2E",
+  "accent": "#FF7A47",
+  "accentLight": "#FF4400",
+  "svgContent": "<g transform=\"translate(300,175)\"><circle r=\"50\" fill=\"none\" stroke=\"#FF7A47\" stroke-width=\"2\"/><path d=\"M0 -34 C 22 -10, 22 20, 0 34 C -22 20, -22 -10, 0 -34 Z\" fill=\"none\" stroke=\"#FF7A47\" stroke-width=\"2.5\"/><line x1=\"0\" y1=\"-34\" x2=\"0\" y2=\"34\" stroke=\"#FF7A47\" stroke-width=\"1\" opacity=\".5\"/></g><text x=\"300\" y=\"265\" text-anchor=\"middle\" font-family=\"Inter,sans-serif\" font-size=\"30\" fill=\"#F3F3F1\" font-weight=\"700\">EUPHOROS</text><text x=\"300\" y=\"292\" text-anchor=\"middle\" font-family=\"JetBrains Mono,monospace\" font-size=\"11\" letter-spacing=\"3\" fill=\"#FF7A47\">AGROCORP GREENTECH</text><g transform=\"translate(180,355)\"><circle r=\"22\" fill=\"#F3F3F1\" opacity=\".18\"/></g><g transform=\"translate(300,355)\"><circle r=\"22\" fill=\"#FF4400\" opacity=\".3\"/></g><g transform=\"translate(420,355)\"><circle r=\"22\" fill=\"#F3F3F1\" opacity=\".18\"/></g>",
+  "heroImage": "",
+  "images": []
+}

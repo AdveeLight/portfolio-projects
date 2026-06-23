@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Netlify Identity: lets invite/confirmation links from /admin work
+     correctly when they land on the homepage first. -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", (user) => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Deuwel Yusuf — Brand Strategist & Identity Designer | Llumine Studios</title>
@@ -115,17 +129,18 @@ em,.it{font-style:italic;font-weight:500;color:var(--accent);}
 .btn-outline.on-dark:hover{background:var(--cream-text);color:var(--forest);}
 
 .nav-cta-link{
+  display:inline-flex;align-items:center;justify-content:center;
   font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
-  color:var(--ink-soft);padding:10px 22px;border-radius:999px;position:relative;
+  color:var(--ink-soft);height:54px;padding:0 22px;border-radius:999px;position:relative;
   border:1.4px solid var(--line);
-  transition:color .2s ease,border-color .2s ease;
+  transition:color .2s ease,border-color .2s ease,background .2s ease;
 }
 .nav-cta-link::after{
   content:"";position:absolute;bottom:7px;left:22px;right:22px;height:1.5px;background:var(--accent);
   transform:scaleX(0);transform-origin:left;transition:transform .25s ease;
 }
-.nav-cta-link:hover{color:var(--ink);border-color:var(--ink);}
-.nav-cta-link:hover::after{transform:scaleX(1);}
+.nav-cta-link:hover{color:var(--cream-text);border-color:var(--forest-soft);background:var(--forest-soft);}
+.nav-cta-link:hover::after{transform:scaleX(0);}
 .btn svg{width:14px;height:14px;}
 
 section{position:relative;}
@@ -158,7 +173,7 @@ header.nav{
   display:flex;align-items:center;gap:34px;
   background:var(--forest);
   border-radius:999px;
-  height:58px;
+  height:54px;
   padding:0 30px;
   box-shadow:0 14px 34px -16px rgba(10,10,10,.35);
 }
@@ -209,52 +224,6 @@ header.nav{
   .nav-burger{display:flex;}
 }
 </style>
-
-<style>
-/* ── Case Study Modal Enhancements ── */
-.pm-brief-headline{
-  font-family:var(--display);font-size:22px;font-weight:700;
-  letter-spacing:-.02em;color:var(--ink);margin-bottom:12px;line-height:1.2;
-}
-.pm-outcome-headline{
-  font-family:var(--display);font-size:20px;font-weight:700;
-  letter-spacing:-.02em;color:var(--ink);margin-bottom:8px;line-height:1.2;
-}
-.pm-process{display:flex;flex-direction:column;gap:0;margin-bottom:26px;}
-.pm-step{
-  display:grid;grid-template-columns:40px 1fr;gap:14px;
-  padding:14px 0;border-bottom:1px solid var(--line);align-items:start;
-}
-.pm-step:last-child{border-bottom:none;}
-.pm-step-num{font-family:var(--mono);font-size:11px;color:var(--brass-dark);font-weight:600;padding-top:2px;}
-.pm-step-title{font-family:var(--display);font-size:15px;font-weight:700;margin-bottom:4px;color:var(--ink);}
-.pm-step-desc{font-size:14px;color:var(--ink-soft);line-height:1.6;}
-.pm-deliverables{display:flex;flex-direction:column;gap:0;margin-bottom:26px;}
-.pm-deliverable{
-  display:flex;justify-content:space-between;align-items:baseline;gap:16px;
-  padding:12px 0;border-bottom:1px solid var(--line);
-}
-.pm-deliverable:last-child{border-bottom:none;}
-.pm-del-name{font-family:var(--display);font-size:14px;font-weight:700;color:var(--ink);flex-shrink:0;}
-.pm-del-desc{font-size:13px;color:var(--ink-soft);text-align:right;}
-.pm-palette{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px;}
-.pm-swatch{
-  flex:1;min-width:80px;border-radius:10px;padding:20px 12px 12px;
-  display:flex;flex-direction:column;gap:4px;
-}
-.pm-swatch-name{font-family:var(--mono);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;}
-.pm-swatch-hex{font-family:var(--mono);font-size:10px;}
-.pm-gallery{display:flex;flex-direction:column;gap:14px;margin-bottom:26px;}
-.pm-gallery-item{margin:0;}
-.pm-gallery-item img{width:100%;border-radius:10px;display:block;}
-.pm-gallery-item figcaption{font-size:12px;color:var(--ink-faint);margin-top:6px;font-family:var(--mono);}
-@media(max-width:600px){
-  .pm-deliverable{flex-direction:column;gap:4px;}
-  .pm-del-desc{text-align:left;}
-  .pm-palette{gap:6px;}
-  .pm-swatch{min-width:70px;}
-}
-</style>
 </head>
 <body>
 
@@ -291,10 +260,10 @@ header.nav{
 <section id="top" class="hero">
   <div class="wrap hero-inner">
     <div class="hero-copy">
-      <div class="eyebrow"><span class="mark"></span>Llumine Studios — Brand &amp; Identity</div>
-      <h1 class="hero-h1">Deuwel Yusuf</h1>
+      <!-- <div class="eyebrow"><span class="mark"></span>Llumine Studios — Brand &amp; Identity</div> -->
+      <h1 class="hero-h1">Deuwel<br>Yusuf</h1>
       <p class="hero-role">Brand Strategist &amp; Identity Designer</p>
-      <p class="hero-statement">I help startups, founders, and growing organizations build strategic brand foundations and scalable identity systems that create clarity, differentiation, and long-term market recognition.</p>
+      <p class="hero-statement">I create thoughtful, strategy-led identities for imaginative brands that want to make their own statement.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-primary">Start a Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a href="#work" class="btn btn-outline">View Featured Work</a>
@@ -648,8 +617,101 @@ header.nav{
       <button onclick="openFullPortfolio()" class="btn btn-outline">View Full Portfolio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
     </div>
 
-    <div class="work-grid" id="featuredWorkGrid">
-      <!-- Populated by JS from /projects/*.json -->
+    <div class="work-grid">
+
+      <article class="work-card" onclick="openProject('atlas')" style="cursor:pointer;" title="View Atlas Yard Capital case study">
+        <div class="work-visual" data-case="atlas">
+          <svg viewBox="0 0 600 460" class="case-svg" aria-hidden="true">
+            <rect width="600" height="460" fill="#0A0A0A"/>
+            <rect x="0" y="0" width="600" height="460" fill="url(#g1)"/>
+            <defs><linearGradient id="g1" x1="0" y1="0" x2="600" y2="460">
+              <stop offset="0" stop-color="#262626"/><stop offset="1" stop-color="#0A0A0A"/>
+            </linearGradient></defs>
+            <g transform="translate(300,170)">
+              <circle r="58" fill="none" stroke="#FF4400" stroke-width="2"/>
+              <path d="M -30 18 L 0 -38 L 30 18 Z" fill="none" stroke="#FF7A47" stroke-width="2.5"/>
+              <line x1="-30" y1="18" x2="30" y2="18" stroke="#FF7A47" stroke-width="2.5"/>
+              <line x1="0" y1="-38" x2="0" y2="18" stroke="#FF7A47" stroke-width="1" opacity=".5"/>
+            </g>
+            <text x="300" y="270" text-anchor="middle" font-family="Inter, sans-serif" font-size="34" fill="#F3F3F1" font-weight="700">ATLAS YARD</text>
+            <text x="300" y="298" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="3" fill="#FF4400">CAPITAL</text>
+            <g transform="translate(150,360)"><rect width="80" height="50" rx="6" fill="#F3F3F1" opacity=".08"/></g>
+            <g transform="translate(260,360)"><rect width="80" height="50" rx="6" fill="#F3F3F1" opacity=".12"/></g>
+            <g transform="translate(370,360)"><rect width="80" height="50" rx="6" fill="#FF4400" opacity=".25"/></g>
+          </svg>
+          <span class="work-tag">Brand Strategy &amp; Identity</span>
+        </div>
+        <div class="work-info">
+          <h3>Atlas Yard Capital</h3>
+          <p class="work-industry">Real Estate &amp; Logistics Investments</p>
+          <p class="work-desc">A confident, institutional identity system built to carry an investment brand across stationery, digital, and investor-facing materials.</p>
+          <div class="work-services">
+            <span>Brand Strategy</span><span>Identity Design</span><span>Visual Systems</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-card" onclick="openProject('euphoros')" style="cursor:pointer;" title="View Euphoros case study">
+        <div class="work-visual" data-case="euphoros">
+          <svg viewBox="0 0 600 460" class="case-svg" aria-hidden="true">
+            <rect width="600" height="460" fill="#4D4D4D"/>
+            <rect width="600" height="460" fill="url(#g2)"/>
+            <defs><linearGradient id="g2" x1="0" y1="0" x2="600" y2="460">
+              <stop offset="0" stop-color="#666666"/><stop offset="1" stop-color="#2E2E2E"/>
+            </linearGradient></defs>
+            <g transform="translate(300,175)">
+              <circle r="50" fill="none" stroke="#FF7A47" stroke-width="2"/>
+              <path d="M0 -34 C 22 -10, 22 20, 0 34 C -22 20, -22 -10, 0 -34 Z" fill="none" stroke="#FF7A47" stroke-width="2.5"/>
+              <line x1="0" y1="-34" x2="0" y2="34" stroke="#FF7A47" stroke-width="1" opacity=".5"/>
+            </g>
+            <text x="300" y="265" text-anchor="middle" font-family="Inter, sans-serif" font-size="30" fill="#F3F3F1" font-weight="700">EUPHOROS</text>
+            <text x="300" y="292" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="3" fill="#FF7A47">AGROCORP GREENTECH</text>
+            <g transform="translate(180,355)"><circle r="22" fill="#F3F3F1" opacity=".18"/></g>
+            <g transform="translate(300,355)"><circle r="22" fill="#FF4400" opacity=".3"/></g>
+            <g transform="translate(420,355)"><circle r="22" fill="#F3F3F1" opacity=".18"/></g>
+          </svg>
+          <span class="work-tag">Brand Strategy &amp; Identity</span>
+        </div>
+        <div class="work-info">
+          <h3>Euphoros Agrocorp Greentech</h3>
+          <p class="work-industry">Agriculture &amp; Green Technology</p>
+          <p class="work-desc">A growth-oriented brand architecture and mark for a sustainability-driven agritech company, designed to flex across packaging and field materials.</p>
+          <div class="work-services">
+            <span>Brand Strategy</span><span>Logo Design</span><span>Brand Architecture</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-card" onclick="openProject('exampqa')" style="cursor:pointer;" title="View ExamPQA case study">
+        <div class="work-visual" data-case="exampqa">
+          <svg viewBox="0 0 600 460" class="case-svg" aria-hidden="true">
+            <rect width="600" height="460" fill="#0A0A0A"/>
+            <rect width="600" height="460" fill="url(#g3)"/>
+            <defs><linearGradient id="g3" x1="0" y1="0" x2="600" y2="460">
+              <stop offset="0" stop-color="#262626"/><stop offset="1" stop-color="#0A0A0A"/>
+            </linearGradient></defs>
+            <g transform="translate(300,170)">
+              <rect x="-44" y="-44" width="88" height="88" rx="14" fill="none" stroke="#FF4400" stroke-width="2"/>
+              <path d="M -18 0 L -4 16 L 20 -16" fill="none" stroke="#FF7A47" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <text x="300" y="266" text-anchor="middle" font-family="Inter, sans-serif" font-size="34" fill="#F3F3F1" font-weight="700">ExamPQA</text>
+            <text x="300" y="293" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="3" fill="#FF4400">EDUCATION TECHNOLOGY</text>
+            <g transform="translate(170,355)"><rect width="60" height="42" rx="6" fill="#F3F3F1" opacity=".1"/></g>
+            <g transform="translate(270,355)"><rect width="60" height="42" rx="6" fill="#FF4400" opacity=".22"/></g>
+            <g transform="translate(370,355)"><rect width="60" height="42" rx="6" fill="#F3F3F1" opacity=".1"/></g>
+          </svg>
+          <span class="work-tag">Brand Strategy &amp; Identity</span>
+        </div>
+        <div class="work-info">
+          <h3>ExamPQA</h3>
+          <p class="work-industry">Education Technology</p>
+          <p class="work-desc">A clear, trustworthy identity for an exam-prep platform, with a guideline system built so a lean team could implement it consistently at speed.</p>
+          <div class="work-services">
+            <span>Brand Strategy</span><span>Identity Design</span><span>Brand Guidelines</span>
+          </div>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
@@ -1398,6 +1460,30 @@ navMobile.querySelectorAll('a').forEach(link=>{
   font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.02em;
   border:1px solid var(--line);border-radius:999px;padding:6px 13px;color:var(--ink-soft);
 }
+.pm-gallery{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:28px;
+}
+.pm-gallery img{
+  width:100%;height:240px;object-fit:cover;border-radius:14px;display:block;
+  border:1px solid var(--line);
+}
+@media (max-width:640px){
+  .pm-gallery{grid-template-columns:1fr;}
+}
+.pm-process{
+  list-style:none;counter-reset:pm-step;margin-bottom:28px;padding:0;
+  display:flex;flex-direction:column;gap:14px;
+}
+.pm-process li{
+  counter-increment:pm-step;position:relative;padding-left:38px;
+  color:var(--ink-soft);font-size:15px;line-height:1.6;
+}
+.pm-process li::before{
+  content:counter(pm-step);font-family:var(--mono);font-size:12px;font-weight:700;
+  position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;
+  background:var(--forest);color:var(--cream-text);
+  display:flex;align-items:center;justify-content:center;
+}
 .pm-visual{
   width:100%;border-radius:16px;overflow:hidden;
   background:var(--card-cream);border:1px solid var(--line);margin-bottom:20px;
@@ -1429,171 +1515,72 @@ navMobile.querySelectorAll('a').forEach(link=>{
 </style>
 
 <script>
-// ===== PROJECT DATA — LOADED DYNAMICALLY FROM /projects/*.json =====
-// Projects are managed via the Admin CMS at /admin
-// Do NOT hardcode projects here — add them through the admin panel instead.
-
+// ===== PROJECT DATA =====
 let PROJECTS = [];
+let PROJECTS_READY = false;
+const PROJECTS_READY_CALLBACKS = [];
 
-// Fetch all project JSON files from the /projects/ directory
 async function loadProjects() {
   try {
-    // We maintain a lightweight index file that lists all project filenames.
-    // The CMS writes project JSON files to /projects/*.json
-    // We fetch the index, then fetch each project file.
-    const indexRes = await fetch('/projects/index.json');
-    if (!indexRes.ok) throw new Error('No project index found');
-    const index = await indexRes.json(); // array of filenames e.g. ["atlas-yard-capital.json", ...]
+    const idxRes = await fetch('/projects/index.json', { cache: 'no-store' });
+    if (!idxRes.ok) throw new Error('index.json not found');
+    const ids = await idxRes.json();
 
-    const fetched = await Promise.all(
-      index.map(filename =>
-        fetch('/projects/' + filename).then(r => r.json()).catch(() => null)
-      )
-    );
+    const fetched = await Promise.all(ids.map(async (id) => {
+      try {
+        const res = await fetch(`/projects/${id}.json`, { cache: 'no-store' });
+        if (!res.ok) return null;
+        return await res.json();
+      } catch (e) {
+        console.warn('Could not load project', id, e);
+        return null;
+      }
+    }));
 
-    PROJECTS = fetched
-      .filter(Boolean)
-      .sort((a, b) => (a.order || 99) - (b.order || 99));
-
-    renderFeaturedGrid();
-    renderPortfolioGrid();
-
-  } catch (err) {
-    // Fallback: use the seed data below if fetch fails (e.g. running locally without a server)
-    console.warn('Could not load projects from /projects/. Using seed data.', err);
-    PROJECTS = SEED_PROJECTS;
-    renderFeaturedGrid();
-    renderPortfolioGrid();
+    PROJECTS = fetched.filter(Boolean);
+  } catch (e) {
+    console.warn('Could not load /projects/index.json — falling back to empty project list.', e);
+    PROJECTS = [];
   }
+  PROJECTS_READY = true;
+  PROJECTS_READY_CALLBACKS.forEach(cb => cb());
+  PROJECTS_READY_CALLBACKS.length = 0;
 }
 
-// ─── SEED DATA — shown as fallback if JSON files can't be fetched ───────────
-// This mirrors the existing 3 featured projects. Once deployed and the admin
-// is set up, all project data lives in /projects/*.json instead.
-const SEED_PROJECTS = [
-  {
-    id: 'atlas-yard-capital',
-    name: 'Atlas Yard Capital',
-    order: 1, year: '2024',
-    category: 'Real Estate & Logistics',
-    role: 'Brand Strategist · Identity Designer',
-    tag: 'Brand Strategy & Identity',
-    desc: 'A full brand strategy and identity system for a real estate and logistics investment firm, designed to communicate institutional authority across investor and operational audiences.',
-    focus: 'Institutional authority, precision, long-term confidence.',
-    skills: ['Brand Strategy', 'Identity Design', 'Logo Design', 'Brand Guidelines'],
-    color1: '#1C1C1A', accent: '#C8B896',
-    palette: [
-      { name: 'Atlas Black', hex: '#1C1C1A', textColor: 'light' },
-      { name: 'Capital Gold', hex: '#C8B896', textColor: 'dark' },
-      { name: 'Institutional White', hex: '#F5F3EF', textColor: 'dark' },
-      { name: 'Stone', hex: '#6A6860', textColor: 'light' }
-    ],
-    problem: { headline: 'Institutional authority without sacrificing accessibility.', body: 'Atlas Yard Capital needed to signal competence and scale to institutional investors while remaining legible and approachable to operational partners.' },
-    overview: 'Atlas Yard Capital is a real estate and logistics investment firm operating across emerging markets. The challenge was to build an identity that conveyed institutional authority without sacrificing accessibility.',
-    process: [
-      { title: 'Brand Audit & Discovery', desc: 'A full audit of the competitive landscape, existing assets, and stakeholder interviews.' },
-      { title: 'Positioning Framework', desc: 'Developed a positioning statement and messaging architecture that grounded all visual decisions.' },
-      { title: 'Identity Exploration', desc: 'Two distinct identity directions explored, converging into a single coherent system.' },
-      { title: 'System Build & Guidelines', desc: 'Delivered a comprehensive brand system with marks, colour, type, grid, and usage rules.' }
-    ],
-    deliverables: [
-      { name: 'Brand Strategy Document', desc: 'Positioning framework, messaging hierarchy, brand voice definition' },
-      { name: 'Logo System', desc: 'Primary mark, secondary wordmark, monogram, and all variations' },
-      { name: 'Brand Guidelines', desc: 'Comprehensive 40-page brand book covering all usage rules' },
-      { name: 'Stationery Suite', desc: 'Business cards, letterhead, envelopes, email signatures' }
-    ],
-    outcome: { headline: 'A brand that carries weight in investment rooms at every touchpoint.', body: 'The system scales across print, digital, and environmental applications without losing coherence or gravitas.' },
-    nextProject: 'euphoros-agrocorp-greentech',
-    svgContent: `<g transform="translate(300,175)"><rect x="-50" y="-45" width="100" height="90" rx="4" fill="none" stroke="#C8B896" stroke-width="2"/><line x1="-50" y1="-10" x2="50" y2="-10" stroke="#C8B896" stroke-width="1" opacity=".4"/><line x1="-50" y1="20" x2="50" y2="20" stroke="#C8B896" stroke-width="1" opacity=".4"/><circle r="6" cx="0" cy="-28" fill="#C8B896" opacity=".8"/></g><text x="300" y="265" text-anchor="middle" font-family="Inter,sans-serif" font-size="24" fill="#F3F3F1" font-weight="700">ATLAS YARD</text><text x="300" y="292" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="3" fill="#C8B896">CAPITAL</text>`,
-    color2: '#0A0A0A'
-  },
-  {
-    id: 'euphoros-agrocorp-greentech',
-    name: 'Euphoros Agrocorp Greentech',
-    order: 2, year: '2024',
-    category: 'Agriculture & Green Technology',
-    role: 'Brand Strategist · Identity Designer',
-    tag: 'Brand Strategy & Identity',
-    desc: 'A growth-oriented brand architecture and mark for a sustainability-driven agritech company, designed to flex across packaging and field materials.',
-    focus: 'Scientific rigour, natural authenticity — without contradiction.',
-    skills: ['Brand Strategy', 'Logo Design', 'Brand Architecture', 'Packaging Design', 'Brand Guidelines'],
-    color1: '#666666', color2: '#2E2E2E', accent: '#FF7A47',
-    palette: [
-      { name: 'Forest', hex: '#1A2418', textColor: 'light' },
-      { name: 'Harvest Green', hex: '#4E7B42', textColor: 'light' },
-      { name: 'Seedling', hex: '#C8D8B8', textColor: 'dark' },
-      { name: 'Soil White', hex: '#F2EEE4', textColor: 'dark' }
-    ],
-    problem: { headline: 'Scientific rigour and natural authenticity — together.', body: 'Euphoros needed to earn trust from institutional agricultural partners and farming communities simultaneously. The identity had to hold both without contradiction.' },
-    overview: 'Euphoros Agrocorp Greentech is an agricultural technology company bridging sustainable farming with modern supply chain infrastructure. The brand needed to project both scientific rigour and natural authenticity.',
-    process: [
-      { title: 'Audience Mapping', desc: 'Deep research into both institutional and community audiences revealed the core tension and opportunity.' },
-      { title: 'Strategic Platform', desc: "Defined a brand platform around 'Grounded Science' — a company that works with the land, not just on it." },
-      { title: 'Visual Language Development', desc: 'Built from natural textures and geometric precision — organic form with structural discipline.' },
-      { title: 'Packaging & Application', desc: "Identity extended into packaging for Euphoros's direct-to-consumer product line." }
-    ],
-    deliverables: [
-      { name: 'Brand Strategy Document', desc: 'Audience mapping, positioning framework, brand platform definition' },
-      { name: 'Logo System', desc: 'Primary mark, icon, wordmark, and bi-lingual adaptations' },
-      { name: 'Packaging Design', desc: 'Full packaging system for 6 product SKUs' },
-      { name: 'Brand Guidelines', desc: 'Comprehensive brand and packaging standards book' }
-    ],
-    outcome: { headline: 'A brand that commands confidence in both B2B and B2C contexts simultaneously.', body: 'The system communicates scientific credibility while remaining warm and accessible.' },
-    nextProject: 'exampqa',
-    svgContent: `<g transform="translate(300,175)"><circle r="50" fill="none" stroke="#FF7A47" stroke-width="2"/><path d="M0 -34 C 22 -10, 22 20, 0 34 C -22 20, -22 -10, 0 -34 Z" fill="none" stroke="#FF7A47" stroke-width="2.5"/><line x1="0" y1="-34" x2="0" y2="34" stroke="#FF7A47" stroke-width="1" opacity=".5"/></g><text x="300" y="265" text-anchor="middle" font-family="Inter,sans-serif" font-size="30" fill="#F3F3F1" font-weight="700">EUPHOROS</text><text x="300" y="292" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="3" fill="#FF7A47">AGROCORP GREENTECH</text>`
-  },
-  {
-    id: 'exampqa',
-    name: 'ExamPQA',
-    order: 3, year: '2023',
-    category: 'Education Technology',
-    role: 'Brand Strategist · Identity Designer',
-    tag: 'Brand Strategy & Identity',
-    desc: 'A clear, trustworthy identity for an exam-prep platform, with a guideline system built so a lean team could implement it consistently at speed.',
-    focus: 'Academic seriousness. Student appeal. No compromise.',
-    skills: ['Brand Strategy', 'Identity Design', 'Brand Guidelines', 'Logo Design'],
-    color1: '#262626', color2: '#0A0A0A', accent: '#FF4400',
-    palette: [
-      { name: 'Midnight', hex: '#191620', textColor: 'light' },
-      { name: 'Academic Blue', hex: '#4B44A8', textColor: 'light' },
-      { name: 'Distinction', hex: '#E8C84A', textColor: 'dark' },
-      { name: 'Paper', hex: '#F4F2FA', textColor: 'dark' }
-    ],
-    problem: { headline: 'Academic seriousness. Student appeal. No compromise.', body: 'ExamPQA needed a brand parents and institutions could trust while genuinely resonating with students navigating high-stakes exams.' },
-    overview: 'ExamPQA is an education technology platform providing structured past-question and exam preparation resources to students across Africa. The challenge was positioning an academically serious product as approachable and modern.',
-    process: [
-      { title: 'Student Research', desc: 'Interviews revealed existing revision tools felt either boring or untrustworthy — a clear gap.' },
-      { title: 'Positioning Strategy', desc: "Defined ExamPQA's position as 'The Serious Student's Tool' — rigorous and genuinely motivating." },
-      { title: 'Identity Design', desc: 'Visual system draws from academic tradition with modern energy through bold type and distinctive colour.' },
-      { title: 'Digital System', desc: 'Identity stress-tested across app UI, social campaigns, and all marketing touchpoints.' }
-    ],
-    deliverables: [
-      { name: 'Brand Strategy Document', desc: 'Positioning, messaging framework, tone of voice guide' },
-      { name: 'Logo & Identity System', desc: 'Primary mark, icon mark, wordmark system and variations' },
-      { name: 'Brand Guidelines', desc: 'Full standards document including digital-first usage rules' },
-      { name: 'App UI Concepts', desc: 'Onboarding flow and key screen design concepts' }
-    ],
-    outcome: { headline: 'A brand that earns institutional trust while genuinely appealing to students.', body: 'The identity creates a clear sense of rigour and momentum. The system scales across app, social, and marketing.' },
-    nextProject: 'atlas-yard-capital',
-    svgContent: `<g transform="translate(300,170)"><rect x="-44" y="-44" width="88" height="88" rx="14" fill="none" stroke="#FF4400" stroke-width="2"/><path d="M -18 0 L -4 16 L 20 -16" fill="none" stroke="#FF7A47" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g><text x="300" y="266" text-anchor="middle" font-family="Inter,sans-serif" font-size="34" fill="#F3F3F1" font-weight="700">ExamPQA</text><text x="300" y="293" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="3" fill="#FF4400">EDUCATION TECHNOLOGY</text>`
-  }
-];
+function whenProjectsReady(cb) {
+  if (PROJECTS_READY) cb();
+  else PROJECTS_READY_CALLBACKS.push(cb);
+}
 
+loadProjects();
 
 // ===== RENDER PORTFOLIO GRID =====
+function projectVisualMarkup(p, viewBox, gradId) {
+  // Real uploaded hero image takes priority; falls back to generated SVG mark.
+  if (p.heroImage && p.heroImage.trim() !== '') {
+    return `<img src="${p.heroImage}" alt="${p.name} brand visual" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">`;
+  }
+  return `
+    <svg viewBox="${viewBox}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs><linearGradient id="${gradId}" x1="0" y1="0" x2="${viewBox.split(' ')[2]}" y2="${viewBox.split(' ')[3]}">
+        <stop offset="0" stop-color="${p.color1}"/>
+        <stop offset="1" stop-color="${p.color2}"/>
+      </linearGradient></defs>
+      <rect width="${viewBox.split(' ')[2]}" height="${viewBox.split(' ')[3]}" fill="url(#${gradId})"/>
+      ${p.svgContent}
+    </svg>`;
+}
+
 function renderPortfolioGrid() {
   const grid = document.getElementById('fpGrid');
+  if (!PROJECTS.length) {
+    grid.innerHTML = `<p style="font-family:var(--mono);color:var(--ink-soft);padding:40px 0;">No projects available yet.</p>`;
+    return;
+  }
   grid.innerHTML = PROJECTS.map(p => `
     <article class="fp-card" onclick="openProject('${p.id}')" role="button" tabindex="0" aria-label="View ${p.name} project">
       <div class="fp-card-visual">
-        <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <defs><linearGradient id="fpg${p.id}" x1="0" y1="0" x2="600" y2="400">
-            <stop offset="0" stop-color="${p.color1}"/>
-            <stop offset="1" stop-color="${p.color2}"/>
-          </linearGradient></defs>
-          <rect width="600" height="400" fill="url(#fpg${p.id})"/>
-          ${p.svgContent}
-        </svg>
+        ${projectVisualMarkup(p, '0 0 600 400', `fpg${p.id}`)}
         <span class="fp-card-tag">${p.tag}</span>
       </div>
       <div class="fp-card-info">
@@ -1616,185 +1603,101 @@ function renderPortfolioGrid() {
 
 // ===== OPEN / CLOSE FULL PORTFOLIO PAGE =====
 function openFullPortfolio() {
-  renderPortfolioGrid();
-  const overlay = document.getElementById('fullPortfolioOverlay');
-  overlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  overlay.focus();
+  whenProjectsReady(() => {
+    renderPortfolioGrid();
+    const overlay = document.getElementById('fullPortfolioOverlay');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    overlay.focus();
+  });
 }
 function closeFullPortfolio() {
   document.getElementById('fullPortfolioOverlay').classList.remove('open');
   document.body.style.overflow = '';
 }
 
-// ===== RENDER FEATURED WORK GRID (homepage section) =====
-function renderFeaturedGrid() {
-  const grid = document.getElementById('featuredWorkGrid');
-  if (!grid) return;
-  // Show top 3 by order
-  const featured = PROJECTS.slice(0, 3);
-  grid.innerHTML = featured.map(p => {
-    const svgContent = p.svgContent || `<text x="300" y="230" text-anchor="middle" font-family="Inter,sans-serif" font-size="28" fill="#F3F3F1" font-weight="700">${p.name}</text>`;
-    const c1 = p.color1 || '#1A1A1A';
-    const c2 = p.color2 || '#0A0A0A';
-    return `
-    <article class="work-card" onclick="openProject('${p.id}')" style="cursor:pointer;" title="View ${p.name} case study">
-      <div class="work-visual">
-        <svg viewBox="0 0 600 460" class="case-svg" aria-hidden="true">
-          <defs><linearGradient id="fg${p.id}" x1="0" y1="0" x2="600" y2="460">
-            <stop offset="0" stop-color="${c1}"/>
-            <stop offset="1" stop-color="${c2}"/>
-          </linearGradient></defs>
-          <rect width="600" height="460" fill="url(#fg${p.id})"/>
-          ${svgContent}
-        </svg>
-        ${p.heroImage ? `<img src="${p.heroImage}" alt="${p.name}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/>` : ''}
-        ${p.heroImageUrl ? `<img src="${p.heroImageUrl}" alt="${p.name}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/>` : ''}
-        <span class="work-tag">${p.tag || 'Brand Strategy & Identity'}</span>
-      </div>
-      <div class="work-info">
-        <h3>${p.name}</h3>
-        <p class="work-industry">${p.category}</p>
-        <p class="work-desc">${p.desc}</p>
-        <div class="work-services">
-          ${(p.skills || []).slice(0,3).map(s => `<span>${s}</span>`).join('')}
-        </div>
-      </div>
-    </article>`;
-  }).join('');
-}
-
-// ===== OPEN PROJECT DETAIL — Full Case Study =====
+// ===== OPEN PROJECT DETAIL =====
 function openProject(id) {
-  const p = PROJECTS.find(x => x.id === id);
-  if (!p) return;
+  whenProjectsReady(() => {
+    const p = PROJECTS.find(x => x.id === id);
+    if (!p) return;
 
-  const body = document.getElementById('pmBody');
+    const galleryImages = Array.isArray(p.images) ? p.images.filter(Boolean) : [];
+    const hasGallery = galleryImages.length > 0;
+    const hasHero = p.heroImage && p.heroImage.trim() !== '';
 
-  // Build gallery HTML
-  const gallery = (p.gallery || []).filter(g => g.image || g.imageUrl);
-  const galleryHTML = gallery.length ? `
-    <div class="pm-section-label">Project Gallery</div>
-    <div class="pm-gallery">
-      ${gallery.map(g => `
-        <figure class="pm-gallery-item">
-          <img src="${g.image || g.imageUrl}" alt="${g.caption || p.name}" loading="lazy" />
-          ${g.caption ? `<figcaption>${g.caption}</figcaption>` : ''}
-        </figure>
-      `).join('')}
-    </div>
-  ` : '';
+    const visualBlock = (hasHero || hasGallery)
+      ? `<div class="pm-visual">
+           <img src="${hasHero ? p.heroImage : galleryImages[0]}" alt="${p.name} brand visual" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:18px;">
+         </div>`
+      : `<div class="pm-visual">
+           <svg viewBox="0 0 820 460" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+             <defs><linearGradient id="pmg${p.id}" x1="0" y1="0" x2="820" y2="460">
+               <stop offset="0" stop-color="${p.color1}"/>
+               <stop offset="1" stop-color="${p.color2}"/>
+             </linearGradient></defs>
+             <rect width="820" height="460" fill="url(#pmg${p.id})"/>
+             <g transform="translate(110,0)">${p.svgContent}</g>
+           </svg>
+         </div>`;
 
-  // Build palette HTML
-  const paletteHTML = (p.palette || []).length ? `
-    <div class="pm-section-label">Brand Colour Palette</div>
-    <div class="pm-palette">
-      ${(p.palette || []).map(sw => `
-        <div class="pm-swatch" style="background:${sw.hex}">
-          <span class="pm-swatch-name" style="color:${sw.textColor === 'dark' ? '#0A0A0A' : '#F3F3F1'}">${sw.name}</span>
-          <span class="pm-swatch-hex" style="color:${sw.textColor === 'dark' ? 'rgba(10,10,10,.55)' : 'rgba(243,243,241,.55)'}">${sw.hex}</span>
-        </div>
-      `).join('')}
-    </div>
-  ` : '';
+    const galleryBlock = hasGallery
+      ? `<div class="pm-divider"></div>
+         <p class="pm-section-label">Project Gallery</p>
+         <div class="pm-gallery">
+           ${galleryImages.map(src => `<img src="${src}" alt="${p.name} design visual" loading="lazy">`).join('')}
+         </div>`
+      : '';
 
-  // Build process HTML
-  const processHTML = (p.process || []).length ? `
-    <div class="pm-section-label">Process & Methodology</div>
-    <div class="pm-process">
-      ${(p.process || []).map((step, i) => `
-        <div class="pm-step">
-          <span class="pm-step-num">0${i + 1}</span>
-          <div>
-            <div class="pm-step-title">${step.title}</div>
-            <div class="pm-step-desc">${step.desc}</div>
-          </div>
-        </div>
-      `).join('')}
-    </div>
-  ` : '';
+    const imgNote = (hasHero || hasGallery)
+      ? ''
+      : `<p class="pm-img-note">Design visuals — view original work on Upwork portfolio below.</p>`;
 
-  // Build deliverables HTML
-  const delivHTML = (p.deliverables || []).length ? `
-    <div class="pm-section-label">Final Deliverables</div>
-    <div class="pm-deliverables">
-      ${(p.deliverables || []).map(d => `
-        <div class="pm-deliverable">
-          <span class="pm-del-name">${d.name}</span>
-          <span class="pm-del-desc">${d.desc}</span>
-        </div>
-      `).join('')}
-    </div>
-  ` : '';
+    const processBlock = (Array.isArray(p.process) && p.process.length)
+      ? `<p class="pm-section-label">Process</p>
+         <ol class="pm-process">${p.process.map(step => `<li>${step}</li>`).join('')}</ol>`
+      : '';
 
-  // Build outcome HTML
-  const outcomeHTML = (p.outcome) ? `
-    <div class="pm-divider"></div>
-    <div class="pm-section-label">Outcome</div>
-    <p class="pm-outcome-headline">${p.outcome.headline}</p>
-    ${p.outcome.body ? `<p class="pm-desc" style="margin-top:10px">${p.outcome.body}</p>` : ''}
-  ` : '';
+    const outcomeBlock = (p.outcome && p.outcome.trim() !== '')
+      ? `<p class="pm-section-label">Outcome</p><p class="pm-desc">${p.outcome}</p>`
+      : '';
 
-  // Hero image
-  const heroSrc = p.heroImage || p.heroImageUrl;
-  const heroHTML = heroSrc
-    ? `<div class="pm-visual"><img src="${heroSrc}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"/></div>`
-    : `<div class="pm-visual">
-        <svg viewBox="0 0 820 460" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <defs><linearGradient id="pmg${p.id}" x1="0" y1="0" x2="820" y2="460">
-            <stop offset="0" stop-color="${p.color1 || '#1A1A1A'}"/>
-            <stop offset="1" stop-color="${p.color2 || '#0A0A0A'}"/>
-          </linearGradient></defs>
-          <rect width="820" height="460" fill="url(#pmg${p.id})"/>
-          <g transform="translate(110,0)">${p.svgContent || ''}</g>
-        </svg>
-      </div>`;
+    const body = document.getElementById('pmBody');
+    body.innerHTML = `
+      <p class="pm-cat">${p.category}</p>
+      <h2 class="pm-title">${p.name}</h2>
+      <p class="pm-role">Role: ${p.role}</p>
 
-  body.innerHTML = `
-    <p class="pm-cat">${p.category}</p>
-    <h2 class="pm-title">${p.name}</h2>
-    <p class="pm-role">${p.role}</p>
+      ${visualBlock}
+      ${imgNote}
+      ${galleryBlock}
 
-    ${heroHTML}
-
-    <div class="pm-divider"></div>
-
-    ${p.problem ? `
-      <div class="pm-section-label">The Brief</div>
-      <p class="pm-brief-headline">${p.problem.headline}</p>
-      <p class="pm-desc">${p.problem.body}</p>
       <div class="pm-divider"></div>
-    ` : ''}
 
-    <div class="pm-section-label">Overview</div>
-    <p class="pm-desc">${p.overview || p.desc}</p>
+      <p class="pm-section-label">Project Description</p>
+      <p class="pm-desc">${p.desc}</p>
 
-    ${p.focus ? `<div class="pm-section-label">Focus</div><p class="pm-focus">${p.focus}</p>` : ''}
+      ${p.focus ? `<p class="pm-section-label">Focus</p><p class="pm-focus">${p.focus}</p>` : ''}
 
-    <div class="pm-section-label">Skills & Services</div>
-    <div class="pm-skills">${(p.skills || []).map(s => `<span>${s}</span>`).join('')}</div>
+      ${processBlock}
 
-    ${galleryHTML}
-    ${paletteHTML}
+      <p class="pm-section-label">Skills & Deliverables</p>
+      <div class="pm-skills">${p.skills.map(s=>`<span>${s}</span>`).join('')}</div>
 
-    <div class="pm-divider"></div>
+      ${outcomeBlock}
 
-    ${processHTML}
-    ${delivHTML}
-    ${outcomeHTML}
+      <div class="pm-divider"></div>
+      <a href="https://www.upwork.com/freelancers/~01bad9f0d11b9a9384?mp_source=share" target="_blank" rel="noopener" class="pm-upwork">
+        View Design Images on Upwork
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    `;
 
-    <div class="pm-divider"></div>
-    <a href="https://www.upwork.com/freelancers/~01bad9f0d11b9a9384?mp_source=share" target="_blank" rel="noopener" class="pm-upwork">
-      View Design Images on Upwork
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-    </a>
-  `;
-
-  const modal = document.getElementById('projectModal');
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
+    const modal = document.getElementById('projectModal');
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
 }
-
 
 function closeProject() {
   document.getElementById('projectModal').classList.remove('open');
@@ -1816,10 +1719,6 @@ document.addEventListener('keydown', e => {
     else if (document.getElementById('fullPortfolioOverlay').classList.contains('open')) closeFullPortfolio();
   }
 });
-
-// ===== INIT =====
-loadProjects();
-
 </script>
 
 </body>

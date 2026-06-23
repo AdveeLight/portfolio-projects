@@ -1,0 +1,38 @@
+{
+  "id": "atlas",
+  "name": "Atlas Yard Capital",
+  "category": "Real Estate & Logistics Investments",
+  "industry": "Real Estate & Logistics Investments",
+  "year": "",
+  "role": "Lead Brand Strategist & Identity Designer",
+  "tag": "Brand Strategy & Identity",
+  "desc": "A confident, institutional identity system built to carry an investment brand across stationery, digital, and investor-facing materials. The mark and typeface system were designed to communicate stability and authority while remaining flexible for evolving asset classes.",
+  "brief": "A confident, institutional identity system built to carry an investment brand across stationery, digital, and investor-facing materials. The mark and typeface system were designed to communicate stability and authority while remaining flexible for evolving asset classes.",
+  "overview": "A confident, institutional identity system built to carry an investment brand across stationery, digital, and investor-facing materials. The mark and typeface system were designed to communicate stability and authority while remaining flexible for evolving asset classes.",
+  "focus": "Institutional credibility, authority, scalability across professional materials.",
+  "process": [],
+  "deliverables": [
+    "Brand Strategy",
+    "Identity Design",
+    "Visual Systems",
+    "Brand Positioning",
+    "Logo Design",
+    "Brand Guidelines"
+  ],
+  "skills": [
+    "Brand Strategy",
+    "Identity Design",
+    "Visual Systems",
+    "Brand Positioning",
+    "Logo Design",
+    "Brand Guidelines"
+  ],
+  "outcome": "",
+  "color1": "#262626",
+  "color2": "#0A0A0A",
+  "accent": "#FF4400",
+  "accentLight": "#FF7A47",
+  "svgContent": "<g transform=\"translate(300,170)\"><circle r=\"58\" fill=\"none\" stroke=\"#FF4400\" stroke-width=\"2\"/><path d=\"M -30 18 L 0 -38 L 30 18 Z\" fill=\"none\" stroke=\"#FF7A47\" stroke-width=\"2.5\"/><line x1=\"-30\" y1=\"18\" x2=\"30\" y2=\"18\" stroke=\"#FF7A47\" stroke-width=\"2.5\"/><line x1=\"0\" y1=\"-38\" x2=\"0\" y2=\"18\" stroke=\"#FF7A47\" stroke-width=\"1\" opacity=\".5\"/></g><text x=\"300\" y=\"270\" text-anchor=\"middle\" font-family=\"Inter,sans-serif\" font-size=\"34\" fill=\"#F3F3F1\" font-weight=\"700\">ATLAS YARD</text><text x=\"300\" y=\"298\" text-anchor=\"middle\" font-family=\"JetBrains Mono,monospace\" font-size=\"12\" letter-spacing=\"3\" fill=\"#FF4400\">CAPITAL</text><g transform=\"translate(150,360)\"><rect width=\"80\" height=\"50\" rx=\"6\" fill=\"#F3F3F1\" opacity=\".08\"/></g><g transform=\"translate(260,360)\"><rect width=\"80\" height=\"50\" rx=\"6\" fill=\"#F3F3F1\" opacity=\".12\"/></g><g transform=\"translate(370,360)\"><rect width=\"80\" height=\"50\" rx=\"6\" fill=\"#FF4400\" opacity=\".25\"/></g>",
+  "heroImage": "",
+  "images": []
+}

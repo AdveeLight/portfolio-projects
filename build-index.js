@@ -1,39 +1,27 @@
-/**
- * build-index.js
- * Runs at deploy time on Netlify.
- * Scans /projects/ for all .json files (except index.json itself),
- * sorts them by the "order" field, and writes /projects/index.json.
- *
- * This means you NEVER need to manually update index.json —
- * every time you publish a project via the CMS, Netlify re-runs this
- * and your portfolio updates automatically.
- */
+// Runs automatically on every Netlify deploy (see netlify.toml build command).
+// Scans the /projects folder for *.json files (every project the CMS has
+// published) and regenerates index.json so the site always lists exactly
+// what's actually in the folder — no manual step required.
 
-const fs   = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const projectsDir = path.join(__dirname, 'projects');
+const projectsDir = path.join(__dirname, "projects");
 
-// Read all json files except index.json
-const files = fs.readdirSync(projectsDir)
-  .filter(f => f.endsWith('.json') && f !== 'index.json');
+if (!fs.existsSync(projectsDir)) {
+  console.log("No /projects folder found — skipping index build.");
+  process.exit(0);
+}
 
-// Read each file and parse the order field for sorting
-const sorted = files
-  .map(filename => {
-    try {
-      const data = JSON.parse(fs.readFileSync(path.join(projectsDir, filename), 'utf8'));
-      return { filename, order: data.order ?? 99 };
-    } catch {
-      return { filename, order: 99 };
-    }
-  })
-  .sort((a, b) => a.order - b.order)
-  .map(item => item.filename);
+const ids = fs
+  .readdirSync(projectsDir)
+  .filter((f) => f.endsWith(".json") && f !== "index.json")
+  .map((f) => f.replace(/\.json$/, ""))
+  .sort();
 
-// Write the index
-const indexPath = path.join(projectsDir, 'index.json');
-fs.writeFileSync(indexPath, JSON.stringify(sorted, null, 2));
+fs.writeFileSync(
+  path.join(projectsDir, "index.json"),
+  JSON.stringify(ids, null, 2)
+);
 
-console.log(`✓ projects/index.json updated with ${sorted.length} project(s):`);
-sorted.forEach((f, i) => console.log(`  ${i + 1}. ${f}`));
+console.log(`projects/index.json regenerated with ${ids.length} project(s):`, ids);
