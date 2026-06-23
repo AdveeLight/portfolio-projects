@@ -1,0 +1,242 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Where uploaded images get saved in the repo
+media_folder: "images"
+public_folder: "/images"
+
+# ─── TOGGLE THIS TO LOCK THE ADMIN ───────────────────────────
+# When you want to disable the admin panel, change the line below
+# from:   publish_mode: editorial_workflow
+# to:     publish_mode: simple
+# Then commit the change. The /admin URL will still load but
+# any new submissions will go straight to draft with no UI.
+# To fully hide it: rename admin/index.html to admin/index.html.bak
+# ─────────────────────────────────────────────────────────────
+publish_mode: editorial_workflow
+
+collections:
+  - name: "projects"
+    label: "Projects"
+    label_singular: "Project"
+    folder: "projects"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: name
+    summary: "{{name}} — {{category}} ({{year}})"
+    sortable_fields: ["year", "name", "order"]
+    view_groups:
+      - label: "By Year"
+        field: year
+      - label: "By Category"
+        field: category
+
+    fields:
+
+      # ── CORE INFO ──────────────────────────────────────────
+      - label: "Project Name"
+        name: "name"
+        widget: "string"
+        hint: "The client or project name. e.g. Atlas Yard Capital"
+
+      - label: "Short ID / Slug"
+        name: "id"
+        widget: "string"
+        hint: "URL-safe ID, no spaces. e.g. atlas-yard — used internally, not shown to visitors."
+        pattern: ['^[a-z0-9-]+$', "Lowercase letters, numbers and hyphens only"]
+
+      - label: "Display Order"
+        name: "order"
+        widget: "number"
+        default: 99
+        hint: "Lower number = appears first on the portfolio grid. Set 1 for your best work."
+
+      - label: "Year"
+        name: "year"
+        widget: "string"
+        hint: "e.g. 2024"
+
+      - label: "Category / Industry"
+        name: "category"
+        widget: "string"
+        hint: "e.g. Real Estate & Logistics, Education Technology"
+
+      - label: "Your Role"
+        name: "role"
+        widget: "string"
+        hint: "e.g. Brand Strategist · Identity Designer"
+
+      - label: "Card Tag"
+        name: "tag"
+        widget: "string"
+        hint: "Short label shown on the project card. e.g. Brand Strategy & Identity"
+
+      # ── SERVICES / SKILLS ──────────────────────────────────
+      - label: "Services / Skills"
+        name: "skills"
+        widget: "list"
+        hint: "Add each service or skill as a separate item. These appear as tags on the card and in the project detail."
+        field:
+          label: "Service"
+          name: "service"
+          widget: "string"
+
+      # ── IMAGES ────────────────────────────────────────────
+      - label: "Hero / Thumbnail Image"
+        name: "heroImage"
+        widget: "image"
+        required: false
+        hint: "Main image shown on the project card and at the top of the case study. Upload from your computer OR paste a URL (Google Drive share link, Cloudinary, etc.). Recommended: 1200×800px or 16:10 ratio."
+        media_library:
+          config:
+            multiple: false
+
+      - label: "Hero Image URL (alternative)"
+        name: "heroImageUrl"
+        widget: "string"
+        required: false
+        hint: "If you prefer to use a Google Drive or external URL instead of uploading, paste it here. Leave blank if you uploaded above."
+
+      - label: "Project Gallery Images"
+        name: "gallery"
+        widget: "list"
+        required: false
+        hint: "Additional images shown in the case study. Add as many as you like."
+        fields:
+          - label: "Image"
+            name: "image"
+            widget: "image"
+            required: false
+            hint: "Upload from your computer"
+          - label: "Image URL (alternative)"
+            name: "imageUrl"
+            widget: "string"
+            required: false
+            hint: "Or paste a Google Drive / external URL"
+          - label: "Caption"
+            name: "caption"
+            widget: "string"
+            required: false
+            hint: "Optional short caption shown below the image"
+
+      # ── BRAND COLOURS ─────────────────────────────────────
+      - label: "Brand Color Palette"
+        name: "palette"
+        widget: "list"
+        required: false
+        hint: "Add up to 5 brand colours for this project. These render as colour swatches in the case study."
+        fields:
+          - label: "Colour Name"
+            name: "name"
+            widget: "string"
+            hint: "e.g. Atlas Black"
+          - label: "Hex Code"
+            name: "hex"
+            widget: "string"
+            hint: "e.g. #1C1C1A"
+          - label: "Text on this colour"
+            name: "textColor"
+            widget: "select"
+            options: ["light", "dark"]
+            default: "light"
+            hint: "Use 'light' for dark colours, 'dark' for light colours"
+
+      # ── THE PROBLEM ────────────────────────────────────────
+      - label: "The Problem / Brief"
+        name: "problem"
+        widget: "object"
+        hint: "What challenge did the client come to you with?"
+        fields:
+          - label: "Problem Headline"
+            name: "headline"
+            widget: "string"
+            hint: "One punchy sentence. e.g. 'Institutional authority without sacrificing accessibility.'"
+          - label: "Problem Body"
+            name: "body"
+            widget: "text"
+            hint: "2–4 sentences expanding on the challenge. Keep it concise."
+
+      # ── OVERVIEW ──────────────────────────────────────────
+      - label: "Project Overview"
+        name: "overview"
+        widget: "text"
+        hint: "Max 100 words. Who is the client, what was the core challenge, what was created."
+
+      # ── PROCESS & METHODOLOGY ─────────────────────────────
+      - label: "Process & Methodology Steps"
+        name: "process"
+        widget: "list"
+        hint: "Add each step of your process. Usually 3–5 steps."
+        fields:
+          - label: "Step Title"
+            name: "title"
+            widget: "string"
+            hint: "e.g. Brand Audit & Discovery"
+          - label: "Step Description"
+            name: "desc"
+            widget: "text"
+            hint: "2–4 sentences describing what happened in this step."
+
+      # ── DELIVERABLES ──────────────────────────────────────
+      - label: "Final Deliverables"
+        name: "deliverables"
+        widget: "list"
+        hint: "List every deliverable handed to the client."
+        fields:
+          - label: "Deliverable Name"
+            name: "name"
+            widget: "string"
+            hint: "e.g. Brand Strategy Document, Logo System, Brand Guidelines"
+          - label: "Description"
+            name: "desc"
+            widget: "string"
+            hint: "One sentence. e.g. Comprehensive 40-page brand book covering all usage rules"
+
+      # ── OUTCOME ───────────────────────────────────────────
+      - label: "Outcome"
+        name: "outcome"
+        widget: "object"
+        hint: "What was the result of the work?"
+        fields:
+          - label: "Outcome Headline"
+            name: "headline"
+            widget: "string"
+            hint: "A single strong sentence about the result."
+          - label: "Outcome Detail"
+            name: "body"
+            widget: "text"
+            hint: "1–2 sentences on impact, scalability, or what changed for the client."
+
+      # ── CARD VISUAL FALLBACK ──────────────────────────────
+      - label: "Card Background Color (fallback)"
+        name: "color1"
+        widget: "string"
+        default: "#1A1A1A"
+        hint: "Shown on the card if no hero image is set. Dark hex code recommended. e.g. #1C1C1A"
+
+      - label: "Card Accent Color (fallback)"
+        name: "accent"
+        widget: "string"
+        default: "#FF4400"
+        hint: "Accent colour used in the SVG placeholder if no image is uploaded. e.g. #FF4400"
+
+      # ── SHORT DESCRIPTION (CARD) ──────────────────────────
+      - label: "Card Description"
+        name: "desc"
+        widget: "text"
+        hint: "2–3 sentences shown on the project card. What was the project about?"
+
+      # ── FOCUS LINE ────────────────────────────────────────
+      - label: "Focus Line"
+        name: "focus"
+        widget: "string"
+        required: false
+        hint: "Optional one-liner shown in the project detail. e.g. 'Differentiation, clarity, audience attraction.'"
+
+      # ── NEXT PROJECT ──────────────────────────────────────
+      - label: "Next Project ID"
+        name: "nextProject"
+        widget: "string"
+        required: false
+        hint: "The ID of the project to link to at the bottom of this case study. Leave blank to auto-link to the next project."

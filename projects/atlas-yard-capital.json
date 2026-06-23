@@ -1,0 +1,47 @@
+{
+  "id": "atlas-yard-capital",
+  "name": "Atlas Yard Capital",
+  "order": 1,
+  "year": "2024",
+  "category": "Real Estate & Logistics",
+  "role": "Brand Strategist · Identity Designer",
+  "tag": "Brand Strategy & Identity",
+  "desc": "A full brand strategy and identity system for a real estate and logistics investment firm, designed to communicate institutional authority across investor and operational audiences.",
+  "focus": "Institutional authority, precision, long-term confidence.",
+  "skills": ["Brand Strategy", "Identity Design", "Logo Design", "Brand Guidelines", "Visual Systems"],
+  "heroImage": "",
+  "heroImageUrl": "",
+  "gallery": [],
+  "palette": [
+    { "name": "Atlas Black", "hex": "#1C1C1A", "textColor": "light" },
+    { "name": "Capital Gold", "hex": "#C8B896", "textColor": "dark" },
+    { "name": "Institutional White", "hex": "#F5F3EF", "textColor": "dark" },
+    { "name": "Stone", "hex": "#6A6860", "textColor": "light" }
+  ],
+  "problem": {
+    "headline": "Institutional authority without sacrificing accessibility.",
+    "body": "Atlas Yard Capital needed to signal competence and scale to institutional investors while remaining legible and approachable to operational partners. The challenge was to build a brand that felt both heavyweight and precise — without falling into the clichés of financial services identity design."
+  },
+  "overview": "Atlas Yard Capital is a real estate and logistics investment firm operating across emerging markets. The challenge was to build an identity that conveyed institutional authority without sacrificing accessibility — signalling competence to investors while remaining legible to operational partners. The result is a restrained identity system grounded in precision, scale, and long-term confidence.",
+  "process": [
+    { "title": "Brand Audit & Discovery", "desc": "A full audit of the competitive landscape, existing assets, and stakeholder interviews to identify where Atlas Yard could differentiate clearly from generic financial services positioning." },
+    { "title": "Positioning Framework", "desc": "Developed a positioning statement and messaging architecture that grounded all visual decisions. We defined brand personality attributes — Institutional, Precise, Expansive, Grounded." },
+    { "title": "Identity Exploration", "desc": "Two distinct identity directions were explored: one rooted in typographic precision, one in geometric mark-making. The chosen direction unified both impulses into a single coherent system." },
+    { "title": "System Build & Guidelines", "desc": "Delivered a comprehensive brand system including primary and secondary marks, colour system, typography hierarchy, grid system, and usage rules." }
+  ],
+  "deliverables": [
+    { "name": "Brand Strategy Document", "desc": "Positioning framework, messaging hierarchy, brand voice definition" },
+    { "name": "Logo System", "desc": "Primary mark, secondary wordmark, monogram, and all variations" },
+    { "name": "Brand Guidelines", "desc": "Comprehensive 40-page brand book covering all usage rules" },
+    { "name": "Stationery Suite", "desc": "Business cards, letterhead, envelopes, email signatures" },
+    { "name": "Digital Assets", "desc": "Website concept, social templates, pitch deck template" },
+    { "name": "Environmental Graphics", "desc": "Office signage, reception wall, building identity" }
+  ],
+  "outcome": {
+    "headline": "A brand that carries weight in investment rooms and communicates structural confidence at every touchpoint.",
+    "body": "The system scales across print, digital, and environmental applications without losing coherence or gravitas. Since launch, the brand has supported Atlas Yard in securing two major institutional partnership conversations."
+  },
+  "color1": "#1C1C1A",
+  "accent": "#C8B896",
+  "nextProject": "euphoros-agrocorp-greentech"
+}

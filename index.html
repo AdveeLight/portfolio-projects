@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deuwel Yusuf — Brand Strategist & Identity Designer | Llumine Studios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* New theme tokens */
+  --bg:#F3F3F1;
+  --fg:#0A0A0A;
+  --card:#F3F3F1;
+  --primary:#0A0A0A;
+  --primary-fg:#F3F3F1;
+  --secondary:#E7E6E4;
+  --secondary-fg:#0A0A0A;
+  --muted:#E7E6E4;
+  --muted-fg:#666666;
+  --accent:#FF4400;
+  --accent-fg:#FFFFFF;
+  --border-c:#DBD9D7;
+
+  /* Legacy names mapped onto new theme so existing rules repaint correctly */
+  --bg-cream:#F3F3F1;       /* page background */
+  --card-cream:#E7E6E4;     /* card surface (secondary/muted) */
+  --card-cream-2:#DBD9D7;   /* card surface alt (border tone) */
+  --forest:#0A0A0A;         /* dark surface -> near-black primary */
+  --forest-mid:#171717;     /* dark surface secondary */
+  --forest-soft:#262626;    /* dark surface tertiary */
+  --sage:#4D4D4D;           /* mid neutral (was sage green) */
+  --brass:#FF4400;          /* accent -> orange-red */
+  --brass-light:#FF7A47;    /* lighter accent for on-dark use */
+  --brass-dark:#CC3600;     /* deeper accent for hover states */
+  --ink:#0A0A0A;            /* body text */
+  --ink-soft:#666666;       /* secondary text -> muted foreground */
+  --ink-faint:#8A8A8A;      /* faint text */
+  --line:#DBD9D7;           /* hairline border on light */
+  --line-dark:#2E2E2E;      /* hairline border on dark */
+  --cream-text:#F3F3F1;     /* light text on dark surfaces */
+
+  --display: "Inter", sans-serif;
+  --body: "Inter", sans-serif;
+  --mono: "JetBrains Mono", monospace;
+
+  --max: 1240px;
+  --pad: 32px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;overflow-x:hidden;width:100%;}
+body{
+  font-family:var(--body);
+  background:var(--bg-cream);
+  color:var(--ink);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  width:100%;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+
+.wrap{max-width:var(--max);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);}
+
+.eyebrow{
+  font-family:var(--mono);
+  font-size:12px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--brass-dark);
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:600;
+  margin-bottom:14px;
+}
+.eyebrow.light{color:var(--brass-light);}
+.eyebrow .mark{
+  width:11px;height:11px;position:relative;flex:none;
+}
+.eyebrow .mark::before,.eyebrow .mark::after{
+  content:"";position:absolute;background:currentColor;
+}
+.eyebrow .mark::before{width:100%;height:1.4px;top:50%;left:0;transform:translateY(-50%);}
+.eyebrow .mark::after{width:1.4px;height:100%;left:50%;top:0;transform:translateX(-50%);}
+
+h1,h2,h3,h4{
+  font-family:var(--display);
+  font-weight:700;
+  letter-spacing:-0.02em;
+  color:var(--ink);
+}
+em,.it{font-style:italic;font-weight:500;color:var(--accent);}
+.light em, .light .it{color:var(--brass-light);}
+
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:13px;font-weight:600;
+  letter-spacing:.04em;text-transform:uppercase;
+  padding:15px 26px;border-radius:999px;
+  transition:transform .25s ease, background .25s ease, color .25s ease, box-shadow .25s ease;
+  white-space:nowrap;
+}
+.btn-primary{background:var(--accent);color:var(--accent-fg);}
+.btn-primary:hover{background:var(--brass-dark);color:var(--accent-fg);transform:translateY(-2px);}
+.btn-outline{background:transparent;color:var(--ink);border:1.4px solid var(--ink);}
+.btn-outline:hover{background:var(--ink);color:var(--bg-cream);transform:translateY(-2px);}
+.btn-outline.on-dark{color:var(--cream-text);border-color:rgba(243,243,241,.45);}
+.btn-outline.on-dark:hover{background:var(--cream-text);color:var(--forest);}
+
+.nav-cta-link{
+  font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--ink-soft);padding:10px 22px;border-radius:999px;position:relative;
+  border:1.4px solid var(--line);
+  transition:color .2s ease,border-color .2s ease;
+}
+.nav-cta-link::after{
+  content:"";position:absolute;bottom:7px;left:22px;right:22px;height:1.5px;background:var(--accent);
+  transform:scaleX(0);transform-origin:left;transition:transform .25s ease;
+}
+.nav-cta-link:hover{color:var(--ink);border-color:var(--ink);}
+.nav-cta-link:hover::after{transform:scaleX(1);}
+.btn svg{width:14px;height:14px;}
+
+section{position:relative;}
+
+/* ===== NAV ===== */
+header.nav{
+  position:sticky;top:18px;z-index:100;
+  background:transparent;
+  margin-bottom:-18px;
+}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  height:76px;
+  background:transparent;
+}
+.logo{
+  font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-.01em;
+  display:flex;align-items:center;gap:10px;
+  color:var(--ink);
+}
+.logo .mk{
+  width:16px;height:16px;position:relative;flex:none;
+}
+.logo .mk::before,.logo .mk::after{content:"";position:absolute;background:var(--brass);}
+.logo .mk::before{width:100%;height:2px;top:50%;left:0;transform:translateY(-50%);}
+.logo .mk::after{width:2px;height:100%;left:50%;top:0;transform:translateX(-50%);}
+.logo span{color:var(--brass-dark);font-weight:500;}
+
+.nav-links{
+  display:flex;align-items:center;gap:34px;
+  background:var(--forest);
+  border-radius:999px;
+  height:58px;
+  padding:0 30px;
+  box-shadow:0 14px 34px -16px rgba(10,10,10,.35);
+}
+.nav-links a{
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted-fg);position:relative;padding-bottom:4px;
+  transition:color .2s ease;
+}
+.nav-links a::after{
+  content:"";position:absolute;bottom:0;left:0;width:0;height:1.5px;background:var(--accent);
+  transition:width .25s ease;
+}
+.nav-links a:hover{color:#FFFFFF;}
+.nav-links a:hover::after{width:100%;}
+.nav-cta{display:flex;align-items:center;gap:16px;}
+.nav-burger{
+  display:none;flex-direction:column;justify-content:center;gap:5px;
+  width:38px;height:38px;flex:none;
+}
+.nav-burger span{width:100%;height:1.6px;background:var(--ink);transition:transform .25s ease, opacity .25s ease;}
+.nav-burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.nav-burger[aria-expanded="true"] span:nth-child(2){opacity:0;}
+.nav-burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+
+.nav-mobile{
+  display:none;flex-direction:column;gap:4px;
+  background:var(--forest);
+  border-radius:26px;
+  padding:14px 26px 22px;
+  margin-top:10px;
+  box-shadow:0 14px 34px -16px rgba(10,10,10,.35);
+}
+.nav-mobile.open{display:flex;}
+.nav-mobile a{
+  font-family:var(--mono);font-size:13px;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--muted-fg);padding:14px 4px;border-bottom:1px solid var(--line-dark);
+  position:relative;
+}
+.nav-mobile a:hover{color:#FFFFFF;}
+.nav-mobile-cta{
+  margin-top:14px;justify-content:center;border-bottom:none !important;
+  color:var(--accent-fg) !important;
+}
+
+@media (max-width: 880px){
+  .nav-links{display:none;}
+  .nav-cta .nav-cta-link{display:none;}
+  .nav-burger{display:flex;}
+}
+</style>
+
+<style>
+/* ── Case Study Modal Enhancements ── */
+.pm-brief-headline{
+  font-family:var(--display);font-size:22px;font-weight:700;
+  letter-spacing:-.02em;color:var(--ink);margin-bottom:12px;line-height:1.2;
+}
+.pm-outcome-headline{
+  font-family:var(--display);font-size:20px;font-weight:700;
+  letter-spacing:-.02em;color:var(--ink);margin-bottom:8px;line-height:1.2;
+}
+.pm-process{display:flex;flex-direction:column;gap:0;margin-bottom:26px;}
+.pm-step{
+  display:grid;grid-template-columns:40px 1fr;gap:14px;
+  padding:14px 0;border-bottom:1px solid var(--line);align-items:start;
+}
+.pm-step:last-child{border-bottom:none;}
+.pm-step-num{font-family:var(--mono);font-size:11px;color:var(--brass-dark);font-weight:600;padding-top:2px;}
+.pm-step-title{font-family:var(--display);font-size:15px;font-weight:700;margin-bottom:4px;color:var(--ink);}
+.pm-step-desc{font-size:14px;color:var(--ink-soft);line-height:1.6;}
+.pm-deliverables{display:flex;flex-direction:column;gap:0;margin-bottom:26px;}
+.pm-deliverable{
+  display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  padding:12px 0;border-bottom:1px solid var(--line);
+}
+.pm-deliverable:last-child{border-bottom:none;}
+.pm-del-name{font-family:var(--display);font-size:14px;font-weight:700;color:var(--ink);flex-shrink:0;}
+.pm-del-desc{font-size:13px;color:var(--ink-soft);text-align:right;}
+.pm-palette{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px;}
+.pm-swatch{
+  flex:1;min-width:80px;border-radius:10px;padding:20px 12px 12px;
+  display:flex;flex-direction:column;gap:4px;
+}
+.pm-swatch-name{font-family:var(--mono);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;}
+.pm-swatch-hex{font-family:var(--mono);font-size:10px;}
+.pm-gallery{display:flex;flex-direction:column;gap:14px;margin-bottom:26px;}
+.pm-gallery-item{margin:0;}
+.pm-gallery-item img{width:100%;border-radius:10px;display:block;}
+.pm-gallery-item figcaption{font-size:12px;color:var(--ink-faint);margin-top:6px;font-family:var(--mono);}
+@media(max-width:600px){
+  .pm-deliverable{flex-direction:column;gap:4px;}
+  .pm-del-desc{text-align:left;}
+  .pm-palette{gap:6px;}
+  .pm-swatch{min-width:70px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="logo"><span class="mk"></span>Llumine <span>Studios</span></a>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#testimonials">Feedback</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn nav-cta-link">Start a Project</a>
+      <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#testimonials">Feedback</a>
+    <a href="#contact" class="btn btn-primary nav-mobile-cta">Start a Project</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="top" class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <div class="eyebrow"><span class="mark"></span>Llumine Studios — Brand &amp; Identity</div>
+      <h1 class="hero-h1">Deuwel Yusuf</h1>
+      <p class="hero-role">Brand Strategist &amp; Identity Designer</p>
+      <p class="hero-statement">I help startups, founders, and growing organizations build strategic brand foundations and scalable identity systems that create clarity, differentiation, and long-term market recognition.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Start a Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#work" class="btn btn-outline">View Featured Work</a>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><span class="hm-num">06+</span><span class="hm-label">Years building<br>brand systems</span></div>
+        <div class="hero-meta-div"></div>
+        <div class="hero-meta-item"><span class="hm-num">25+</span><span class="hm-label">Identity projects<br>completed</span></div>
+        <div class="hero-meta-div"></div>
+        <div class="hero-meta-item"><span class="hm-num">7+</span><span class="hm-label">Industries<br>Served</span></div>
+      </div>
+    </div>
+    <div class="hero-figure">
+      <div class="hero-blob"></div>
+      <div class="hero-ticks" aria-hidden="true">
+        <span class="tick t1"></span><span class="tick t2"></span><span class="tick t3"></span><span class="tick t4"></span>
+      </div>
+      <div class="hero-photo-card">
+        <svg viewBox="0 0 340 430" class="hero-photo" aria-label="Deuwel Yusuf monogram portrait card" role="img">
+          <defs>
+            <linearGradient id="heroPhotoBg" x1="0" y1="0" x2="340" y2="430">
+              <stop offset="0" stop-color="#262626"/>
+              <stop offset="1" stop-color="#0A0A0A"/>
+            </linearGradient>
+          </defs>
+          <rect width="340" height="430" fill="url(#heroPhotoBg)"/>
+          <g opacity=".5">
+            <line x1="0" y1="80" x2="340" y2="80" stroke="#FF4400" stroke-width="0.6"/>
+            <line x1="0" y1="350" x2="340" y2="350" stroke="#FF4400" stroke-width="0.6"/>
+            <line x1="170" y1="0" x2="170" y2="430" stroke="#FF4400" stroke-width="0.6"/>
+          </g>
+          <text x="170" y="250" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="150" fill="#F3F3F1">DY</text>
+          <g transform="translate(170,80)" stroke="#FF4400" stroke-width="1.4" opacity=".85">
+            <line x1="-9" y1="0" x2="9" y2="0"/><line x1="0" y1="-9" x2="0" y2="9"/>
+          </g>
+          <g transform="translate(170,350)" stroke="#FF4400" stroke-width="1.4" opacity=".85">
+            <line x1="-9" y1="0" x2="9" y2="0"/><line x1="0" y1="-9" x2="0" y2="9"/>
+          </g>
+        </svg>
+      </div>
+      <div class="hero-badge">
+        <span class="hb-mark"></span>
+        <div><strong>Brand Strategist</strong></div>
+      </div>
+      <div class="hero-tag-2">Identity Designer</div>
+    </div>
+  </div>
+</section>
+
+<style>
+.hero{padding:64px 0 90px;overflow:visible;}
+.hero-inner{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;
+}
+.hero-h1{font-size:clamp(46px,6.4vw,84px);line-height:.98;margin-bottom:18px;}
+.hero-role{
+  font-family:var(--mono);font-size:15px;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--forest-soft);font-weight:600;margin-bottom:22px;
+}
+.hero-statement{
+  font-size:18px;color:var(--ink-soft);max-width:480px;margin-bottom:36px;line-height:1.6;
+}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:54px;}
+.hero-meta{display:flex;align-items:center;gap:26px;}
+.hero-meta-item{display:flex;flex-direction:column;}
+.hm-num{font-family:var(--display);font-size:30px;font-weight:600;color:var(--forest);}
+.hm-label{font-family:var(--mono);font-size:11px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;margin-top:4px;line-height:1.4;}
+.hero-meta-div{width:1px;height:38px;background:var(--line);}
+
+.hero-figure{position:relative;display:flex;align-items:center;justify-content:center;min-height:520px;}
+.hero-blob{
+  position:absolute;width:430px;height:430px;border-radius:50% 50% 48% 52% / 55% 48% 52% 45%;
+  background:linear-gradient(150deg,var(--forest) 0%, var(--forest-soft) 55%, var(--sage) 100%);
+  top:8%;left:50%;transform:translateX(-50%);
+}
+.hero-ticks{position:absolute;width:480px;height:480px;top:2%;left:50%;transform:translateX(-50%);pointer-events:none;}
+.tick{position:absolute;width:13px;height:13px;}
+.tick::before,.tick::after{content:"";position:absolute;background:var(--brass);}
+.tick::before{width:100%;height:1.6px;top:50%;transform:translateY(-50%);}
+.tick::after{width:1.6px;height:100%;left:50%;transform:translateX(-50%);}
+.t1{top:0;left:6%;}
+.t2{top:14%;right:0;}
+.t3{bottom:6%;left:0;}
+.t4{bottom:18%;right:8%;opacity:.6;}
+
+.hero-photo-card{
+  position:relative;width:340px;height:430px;border-radius:18px;overflow:hidden;
+  box-shadow:0 30px 60px -20px rgba(10,10,10,.4);
+  border:6px solid var(--bg-cream);
+}
+.hero-photo{width:100%;height:100%;display:block;}
+
+.hero-badge{
+  position:absolute;bottom:8%;left:-6%;
+  background:var(--bg-cream);border:1px solid var(--line);border-radius:14px;
+  padding:14px 18px;display:flex;align-items:center;gap:10px;
+  box-shadow:0 16px 30px -12px rgba(10,10,10,.18);
+  font-size:13px;line-height:1.3;
+}
+.hb-mark{width:13px;height:13px;position:relative;flex:none;color:var(--brass-dark);}
+.hb-mark::before,.hb-mark::after{content:"";position:absolute;background:currentColor;}
+.hb-mark::before{width:100%;height:1.6px;top:50%;transform:translateY(-50%);}
+.hb-mark::after{width:1.6px;height:100%;left:50%;transform:translateX(-50%);}
+
+.hero-tag-2{
+  position:absolute;top:6%;right:-4%;
+  background:var(--forest);color:var(--cream-text);
+  font-family:var(--mono);font-size:11px;letter-spacing:.03em;line-height:1.5;
+  padding:13px 16px;border-radius:12px;
+  box-shadow:0 16px 30px -12px rgba(10,10,10,.3);
+}
+
+@media (max-width: 980px){
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-figure{order:-1;min-height:420px;margin-bottom:10px;overflow:hidden;width:100%;}
+  .hero-statement{max-width:none;}
+  .hero-badge{left:0;}
+  .hero-tag-2{right:0;}
+}
+@media (max-width:560px){
+  .hero-photo-card{width:260px;height:330px;}
+  .hero-blob{width:320px;height:320px;}
+  .hero-meta{flex-wrap:wrap;gap:18px;row-gap:14px;}
+  .hero-ticks{width:340px;height:340px;}
+}
+</style>
+
+<!-- ============ SERVICES ============ -->
+<section id="services" class="services">
+  <div class="wrap">
+    <div class="services-head">
+      <div>
+        <div class="eyebrow"><span class="mark"></span>What I Do</div>
+        <h2 class="services-title">Services I Provide</h2>
+      </div>
+      <p class="services-sub">Three disciplines that move a brand from ambiguity to a system it can grow into — strategy that finds the position, design that gives it form, and direction that keeps it consistent everywhere it shows up.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="sc-num">01</span>
+        <h3>Brand Strategy</h3>
+        <ul class="sc-list">
+          <li>Brand Positioning</li>
+          <li>Brand Discovery</li>
+          <li>Audience Research</li>
+          <li>Competitive Analysis</li>
+          <li>Brand Architecture</li>
+          <li>Messaging Foundations</li>
+        </ul>
+      </div>
+      <div class="service-card featured">
+        <span class="sc-num">02</span>
+        <h3>Brand Identity Design</h3>
+        <ul class="sc-list">
+          <li>Logo Design</li>
+          <li>Logo Systems</li>
+          <li>Visual Identity Systems</li>
+          <li>Typography Systems</li>
+          <li>Color Systems</li>
+          <li>Brand Guidelines</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="sc-num">03</span>
+        <h3>Creative Direction</h3>
+        <ul class="sc-list">
+          <li>Art Direction</li>
+          <li>Visual Language Development</li>
+          <li>Brand Rollouts</li>
+          <li>Identity Implementation</li>
+          <li>Presentation Design</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.services{padding:50px 0 100px;}
+.services-head{
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;
+  margin-bottom:54px;padding-bottom:34px;border-bottom:1px solid var(--line);
+}
+.services-title{font-size:clamp(32px,4vw,46px);}
+.services-sub{color:var(--ink-soft);font-size:16px;line-height:1.65;max-width:440px;}
+
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.service-card{
+  background:var(--card-cream);border-radius:20px;padding:38px 30px 34px;
+  border:1px solid var(--line);transition:transform .3s ease, box-shadow .3s ease;
+}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 24px 40px -20px rgba(10,10,10,.22);}
+.service-card.featured{background:var(--forest);border-color:var(--forest);}
+.service-card.featured h3, .service-card.featured .sc-num{color:var(--cream-text);}
+.service-card.featured .sc-list li{color:rgba(243,243,241,.8);border-color:rgba(243,243,241,.16);}
+.service-card.featured .sc-list li::before{color:var(--brass-light);}
+
+.sc-num{font-family:var(--mono);font-size:13px;color:var(--brass-dark);display:block;margin-bottom:18px;font-weight:600;}
+.service-card h3{font-size:23px;margin-bottom:22px;}
+.sc-list li{
+  font-size:14.5px;color:var(--ink-soft);padding:11px 0;border-top:1px solid var(--line);
+  display:flex;align-items:center;gap:10px;
+}
+.sc-list li::before{content:"—";color:var(--brass-dark);font-weight:600;}
+
+@media (max-width:880px){
+  .services-head{grid-template-columns:1fr;gap:18px;}
+  .services-grid{grid-template-columns:1fr;}
+}
+</style>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="about">
+  <div class="wrap about-inner">
+    <div class="about-card">
+      <div class="about-photo-wrap">
+        <svg viewBox="0 0 170 170" class="about-photo" role="img" aria-label="Deuwel Yusuf monogram">
+          <defs>
+            <linearGradient id="aboutPhotoBg" x1="0" y1="0" x2="170" y2="170">
+              <stop offset="0" stop-color="#4D4D4D"/>
+              <stop offset="1" stop-color="#0A0A0A"/>
+            </linearGradient>
+          </defs>
+          <rect width="170" height="170" fill="url(#aboutPhotoBg)"/>
+          <text x="85" y="108" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="62" fill="#F3F3F1">DY</text>
+        </svg>
+        <div class="about-photo-ring"></div>
+      </div>
+      <div class="about-card-copy">
+        <div class="eyebrow light"><span class="mark"></span>About Me</div>
+        <h3 class="about-who">Who is Deuwel Yusuf?</h3>
+        <div class="about-stats">
+          <div><strong>06+</strong><span>Years in practice</span></div>
+          <div><strong>25+</strong><span>Brand systems built</span></div>
+          <div><strong>07+</strong><span>Industries served</span></div>
+        </div>
+        <a href="#contact" class="btn btn-primary">Let's Talk</a>
+      </div>
+    </div>
+
+    <div class="about-body">
+      <div class="about-col">
+        <div class="eyebrow"><span class="mark"></span>Professional Summary</div>
+        <p>I help founders, startups, and growing businesses build strategic foundations and visual identity systems that communicate with clarity and confidence.</p>
+        <p>My work combines brand strategy, identity design, and systems thinking to create brands that are meaningful, memorable, and scalable across every touchpoint.</p>
+      </div>
+      <div class="about-col philosophy">
+        <div class="eyebrow"><span class="mark"></span>Design Philosophy</div>
+        <p class="philosophy-lead">Most organizations don't have a logo problem.<br>They have a <em>clarity</em> problem.</p>
+        <p>Strong brands are built on strategic foundations before visual assets are created. I help organizations define positioning, uncover differentiation, and transform those insights into identity systems that scale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.about{padding:30px 0 100px;}
+.about-card{
+  background:var(--forest);border-radius:24px;padding:46px;
+  display:grid;grid-template-columns:auto 1fr;gap:46px;align-items:center;
+  margin-bottom:64px;position:relative;overflow:hidden;
+}
+.about-card::after{
+  content:"";position:absolute;width:380px;height:380px;border-radius:50%;
+  background:radial-gradient(circle, rgba(255,68,0,.14), transparent 70%);
+  top:-120px;right:-80px;
+}
+.about-photo-wrap{position:relative;width:170px;height:170px;flex:none;}
+.about-photo{width:100%;height:100%;border-radius:50%;border:5px solid var(--forest-soft);display:block;overflow:hidden;}
+.about-photo-ring{
+  position:absolute;inset:-10px;border-radius:50%;border:1.5px dashed rgba(255,68,0,.5);
+}
+.about-card-copy{position:relative;z-index:1;}
+.about-who{color:var(--cream-text);font-size:clamp(26px,3vw,34px);margin-bottom:24px;}
+.about-stats{display:flex;gap:34px;margin-bottom:30px;flex-wrap:wrap;}
+.about-stats div{display:flex;flex-direction:column;}
+.about-stats strong{font-family:var(--display);color:var(--brass-light);font-size:28px;}
+.about-stats span{font-family:var(--mono);font-size:11px;color:rgba(243,243,241,.6);text-transform:uppercase;letter-spacing:.04em;margin-top:4px;}
+
+.about-body{display:grid;grid-template-columns:1fr 1fr;gap:50px;}
+.about-col p{color:var(--ink-soft);font-size:16px;line-height:1.7;margin-bottom:16px;}
+.about-col p:last-child{margin-bottom:0;}
+.philosophy{
+  background:var(--card-cream);border-radius:20px;padding:34px;border:1px solid var(--line);
+}
+.philosophy .eyebrow{margin-bottom:18px;}
+.philosophy-lead{font-family:var(--display);font-size:22px;color:var(--ink);line-height:1.4;margin-bottom:20px !important;}
+
+@media (max-width:880px){
+  .about-card{grid-template-columns:1fr;text-align:center;padding:36px 26px;}
+  .about-photo-wrap{margin:0 auto;}
+  .about-stats{justify-content:center;}
+  .about-body{grid-template-columns:1fr;gap:30px;}
+}
+</style>
+
+<!-- ============ TOOLS ============ -->
+<section class="tools">
+  <div class="tools-band">
+    <div class="tools-track">
+      <span>Adobe Photoshop</span><span class="dot"></span>
+      <span>Adobe Illustrator</span><span class="dot"></span>
+      <span>Affinity</span><span class="dot"></span>
+      <span>Figma</span><span class="dot"></span>
+      <span>Framer</span><span class="dot"></span>
+      <span>FigJam</span><span class="dot"></span>
+      <span>Miro</span><span class="dot"></span>
+      <span>Canva</span><span class="dot"></span>
+      <span>Adobe Photoshop</span><span class="dot"></span>
+      <span>Adobe Illustrator</span><span class="dot"></span>
+      <span>Affinity</span><span class="dot"></span>
+      <span>Figma</span><span class="dot"></span>
+      <span>Framer</span><span class="dot"></span>
+      <span>FigJam</span><span class="dot"></span>
+      <span>Miro</span><span class="dot"></span>
+      <span>Canva</span><span class="dot"></span>
+    </div>
+  </div>
+</section>
+
+<style>
+.tools{padding:0 0 90px;overflow:hidden;}
+.tools-band{
+  background:var(--forest);padding:26px 0;
+  border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);
+}
+.tools-track{
+  display:flex;align-items:center;gap:22px;white-space:nowrap;width:max-content;
+  font-family:var(--mono);font-size:15px;letter-spacing:.03em;color:var(--cream-text);
+  animation:scrollTools 32s linear infinite;
+}
+.tools-track .dot{width:6px;height:6px;border-radius:50%;background:var(--brass);flex:none;}
+@keyframes scrollTools{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
+}
+@media (prefers-reduced-motion: reduce){
+  .tools-track{animation:none;}
+}
+</style>
+
+<!-- ============ FEATURED WORK ============ -->
+<section id="work" class="work">
+  <div class="wrap">
+    <div class="work-head">
+      <div>
+        <div class="eyebrow"><span class="mark"></span>Selected Case Studies</div>
+        <h2 class="work-title">Featured Work</h2>
+      </div>
+      <button onclick="openFullPortfolio()" class="btn btn-outline">View Full Portfolio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+
+    <div class="work-grid" id="featuredWorkGrid">
+      <!-- Populated by JS from /projects/*.json -->
+    </div>
+  </div>
+</section>
+
+<style>
+.work{padding:30px 0 100px;}
+.work-head{
+  display:flex;justify-content:space-between;align-items:end;gap:30px;
+  margin-bottom:46px;padding-bottom:30px;border-bottom:1px solid var(--line);
+}
+.work-title{font-size:clamp(32px,4vw,46px);}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+.work-card{
+  background:var(--card-cream);border-radius:20px;overflow:hidden;border:1px solid var(--line);
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.work-card:hover{transform:translateY(-6px);box-shadow:0 24px 44px -20px rgba(10,10,10,.25);}
+.work-visual{position:relative;aspect-ratio:600/460;overflow:hidden;}
+.case-svg{width:100%;height:100%;display:block;}
+.work-tag{
+  position:absolute;bottom:14px;left:14px;background:rgba(10,10,10,.55);
+  color:var(--cream-text);font-family:var(--mono);font-size:11px;letter-spacing:.03em;
+  padding:7px 12px;border-radius:999px;backdrop-filter:blur(4px);
+}
+.work-info{padding:26px 26px 28px;}
+.work-info h3{font-size:21px;margin-bottom:5px;}
+.work-industry{font-family:var(--mono);font-size:11.5px;color:var(--brass-dark);text-transform:uppercase;letter-spacing:.04em;margin-bottom:14px;font-weight:600;}
+.work-desc{color:var(--ink-soft);font-size:14.5px;line-height:1.6;margin-bottom:18px;}
+.work-services{display:flex;flex-wrap:wrap;gap:8px;}
+.work-services span{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.02em;text-transform:uppercase;
+  border:1px solid var(--line);border-radius:999px;padding:5px 11px;color:var(--ink-soft);
+}
+
+@media (max-width:980px){
+  .work-grid{grid-template-columns:1fr;}
+  .work-head{flex-direction:column;align-items:flex-start;}
+}
+</style>
+
+<!-- ============ EDUCATION & EXPERIENCE ============ -->
+<section id="experience" class="journey">
+  <div class="wrap">
+    <div class="eyebrow"><span class="mark"></span>Background</div>
+    <h2 class="journey-title">My Academic &amp; Professional Journey</h2>
+
+    <div class="journey-tabs">
+      <button class="jtab active" data-tab="work">Work Experience</button>
+      <button class="jtab" data-tab="edu">Education</button>
+    </div>
+
+    <div class="journey-panel" id="panel-work">
+      <div class="timeline">
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-content">
+            <span class="t-date">2024 — Present</span>
+            <h4>Lead Brand Strategist &amp; Identity Designer</h4>
+            <p class="t-org">Atlas Yard Capital · Real Estate &amp; Logistics Investments</p>
+            <div class="t-scope">
+              <span>Brand Strategy</span><span>Identity Design</span><span>Visual Systems</span><span>Brand Positioning</span>
+            </div>
+          </div>
+        </div>
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-content">
+            <span class="t-date">2022 — 2024</span>
+            <h4>Lead Brand Strategist, Logo &amp; Identity Designer</h4>
+            <p class="t-org">Euphoros Agrocorp Greentech · Agriculture &amp; Green Technology</p>
+            <div class="t-scope">
+              <span>Brand Strategy</span><span>Logo Design</span><span>Visual Identity</span><span>Brand Architecture</span>
+            </div>
+          </div>
+        </div>
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-content">
+            <span class="t-date">2020 — 2022</span>
+            <h4>Lead Brand Strategist, Logo &amp; Identity Designer</h4>
+            <p class="t-org">ExamPQA · Education Technology</p>
+            <div class="t-scope">
+              <span>Brand Strategy</span><span>Logo Design</span><span>Identity Design</span><span>Brand Guidelines</span>
+            </div>
+          </div>
+        </div>
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-content">
+            <span class="t-date">2020 — Present</span>
+            <h4>Founder · Brand Strategist &amp; Identity Designer</h4>
+            <p class="t-org">Independent Brand Strategy &amp; Identity Practice</p>
+            <p class="t-desc">Partner with startups, growing businesses, and organizations to develop strategic brand foundations and scalable visual identity systems — leading projects from discovery and positioning through implementation and brand governance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="journey-panel" id="panel-edu" style="display:none;">
+      <div class="edu-card">
+        <div class="edu-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg>
+        </div>
+        <div>
+          <h4>Ahmadu Bello University, Zaria</h4>
+          <p class="t-org">Bachelor's Degree Programme</p>
+          <p class="t-desc">Relevant project: Cloud-Based Library System — a coursework project applying systems thinking to information architecture and access design.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.journey{padding:30px 0 100px;}
+.journey-title{font-size:clamp(30px,4vw,42px);margin:14px 0 38px;max-width:600px;}
+.journey-tabs{display:flex;gap:10px;margin-bottom:36px;}
+.jtab{
+  font-family:var(--mono);font-size:13px;letter-spacing:.04em;text-transform:uppercase;
+  padding:13px 24px;border-radius:999px;border:1px solid var(--line);color:var(--ink-soft);
+  font-weight:600;transition:all .25s ease;
+}
+.jtab.active{background:var(--forest);color:var(--cream-text);border-color:var(--forest);}
+.jtab:not(.active):hover{border-color:var(--brass-dark);color:var(--ink);}
+
+.timeline{position:relative;padding-left:30px;}
+.timeline::before{content:"";position:absolute;left:5px;top:8px;bottom:8px;width:1.5px;background:var(--line);}
+.t-item{position:relative;padding-bottom:38px;}
+.t-item:last-child{padding-bottom:0;}
+.t-dot{
+  position:absolute;left:-30px;top:4px;width:11px;height:11px;border-radius:50%;
+  background:var(--bg-cream);border:2.5px solid var(--brass-dark);
+}
+.t-date{font-family:var(--mono);font-size:12px;color:var(--brass-dark);font-weight:600;letter-spacing:.03em;}
+.t-content h4{font-size:19px;margin:6px 0 5px;}
+.t-org{font-size:14px;color:var(--ink-soft);margin-bottom:10px;}
+.t-desc{font-size:14.5px;color:var(--ink-soft);line-height:1.65;max-width:620px;margin-top:8px;}
+.t-scope{display:flex;flex-wrap:wrap;gap:8px;}
+.t-scope span{
+  font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.02em;
+  background:var(--card-cream);border:1px solid var(--line);border-radius:999px;padding:5px 11px;color:var(--ink-soft);
+}
+
+.edu-card{
+  display:flex;gap:22px;background:var(--card-cream);border:1px solid var(--line);
+  border-radius:18px;padding:32px;align-items:flex-start;max-width:680px;
+}
+.edu-icon{
+  width:50px;height:50px;flex:none;border-radius:14px;background:var(--forest);color:var(--brass-light);
+  display:flex;align-items:center;justify-content:center;
+}
+.edu-icon svg{width:24px;height:24px;}
+</style>
+
+<!-- ============ CAPABILITIES ============ -->
+<section class="capabilities">
+  <div class="wrap">
+    <div class="cap-head">
+      <div class="eyebrow"><span class="mark"></span>How I Work</div>
+      <h2 class="cap-title">Capabilities &amp; Range</h2>
+    </div>
+
+    <div class="cap-grid">
+      <div class="cap-col">
+        <h3>Strategy</h3>
+        <ul>
+          <li>Brand Positioning</li>
+          <li>Market Research</li>
+          <li>Audience Insights</li>
+          <li>Brand Architecture</li>
+          <li>Strategic Workshops</li>
+        </ul>
+      </div>
+      <div class="cap-col">
+        <h3>Design</h3>
+        <ul>
+          <li>Logo Design</li>
+          <li>Identity Design</li>
+          <li>Typography</li>
+          <li>Design Systems</li>
+          <li>Editorial Design</li>
+        </ul>
+      </div>
+      <div class="cap-col">
+        <h3>Software</h3>
+        <ul>
+          <li>Adobe Illustrator</li>
+          <li>Adobe Photoshop</li>
+          <li>Adobe InDesign</li>
+          <li>Figma</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.capabilities{padding:30px 0 100px;}
+.cap-head{margin-bottom:44px;}
+.cap-title{font-size:clamp(30px,4vw,42px);margin-top:14px;}
+.cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.cap-col{background:var(--card-cream);border:1px solid var(--line);border-radius:18px;padding:30px 28px;}
+.cap-col h3{font-size:19px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);}
+.cap-col li{
+  font-size:14.5px;color:var(--ink-soft);padding:8px 0;display:flex;align-items:center;gap:9px;
+}
+.cap-col li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--brass);flex:none;}
+
+@media (max-width:880px){.cap-grid{grid-template-columns:1fr;}}
+</style>
+
+<!-- ============ ENGAGEMENT MODELS ============ -->
+<section class="engage">
+  <div class="wrap">
+    <div class="engage-head">
+      <div class="eyebrow"><span class="mark"></span>How We Can Work Together</div>
+      <h2 class="engage-title">Engagement Models</h2>
+    </div>
+
+    <div class="engage-grid">
+      <div class="engage-card">
+        <span class="eg-num">01</span>
+        <h3>Brand Sprint</h3>
+        <p class="eg-desc">A focused engagement for early-stage founders who need positioning and a foundational mark before launch.</p>
+        <ul>
+          <li>Brand discovery session</li>
+          <li>Positioning &amp; messaging direction</li>
+          <li>Primary logo &amp; basic guidelines</li>
+        </ul>
+      </div>
+      <div class="engage-card featured">
+        <span class="eg-num">02</span>
+        <h3>Full Identity System</h3>
+        <p class="eg-desc">The complete path from strategy to a scalable identity system — built for brands ready to show up consistently everywhere.</p>
+        <ul>
+          <li>Strategy, positioning &amp; architecture</li>
+          <li>Logo system &amp; visual language</li>
+          <li>Full brand guidelines &amp; application set</li>
+        </ul>
+      </div>
+      <div class="engage-card">
+        <span class="eg-num">03</span>
+        <h3>Ongoing Creative Direction</h3>
+        <p class="eg-desc">Retained support for brands that need a steady hand keeping identity consistent as they grow and roll out new materials.</p>
+        <ul>
+          <li>Monthly creative direction</li>
+          <li>Implementation oversight</li>
+          <li>New collateral as needed</li>
+        </ul>
+      </div>
+    </div>
+    <p class="engage-note">Scope and timelines are shaped around each brand's stage and goals — <a href="#contact">get in touch</a> to talk through what fits.</p>
+  </div>
+</section>
+
+<style>
+.engage{padding:30px 0 100px;}
+.engage-head{margin-bottom:44px;}
+.engage-title{font-size:clamp(30px,4vw,42px);margin-top:14px;}
+.engage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:30px;}
+.engage-card{
+  border-radius:20px;padding:36px 30px;border:1px solid var(--line);background:var(--card-cream);
+  transition:transform .3s ease;
+}
+.engage-card:hover{transform:translateY(-6px);}
+.engage-card.featured{background:var(--forest);border-color:var(--forest);transform:scale(1.03);}
+.engage-card.featured h3,.engage-card.featured .eg-num{color:var(--cream-text);}
+.engage-card.featured .eg-desc{color:rgba(243,243,241,.75);}
+.engage-card.featured li{color:rgba(243,243,241,.85);}
+.engage-card.featured li::before{color:var(--brass-light);}
+.eg-num{font-family:var(--mono);font-size:13px;color:var(--brass-dark);font-weight:600;display:block;margin-bottom:16px;}
+.engage-card h3{font-size:22px;margin-bottom:14px;}
+.eg-desc{color:var(--ink-soft);font-size:14.5px;line-height:1.6;margin-bottom:20px;}
+.engage-card li{font-size:14px;color:var(--ink-soft);padding:7px 0;display:flex;gap:9px;}
+.engage-card li::before{content:"✓";color:var(--brass-dark);font-weight:700;}
+.engage-note{color:var(--ink-faint);font-size:14px;text-align:center;}
+.engage-note a{color:var(--brass-dark);text-decoration:underline;font-weight:600;}
+
+@media (max-width:980px){
+  .engage-grid{grid-template-columns:1fr;}
+  .engage-card.featured{transform:none;}
+}
+</style>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section id="testimonials" class="testimonials">
+  <div class="wrap">
+    <div class="test-head">
+      <div class="eyebrow"><span class="mark"></span>Client Feedback</div>
+      <h2 class="test-title">Selected Client Feedback</h2>
+    </div>
+
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p class="test-quote">Deuwel didn't just give us a logo — he gave us a way of thinking about our own brand. Every material we've shipped since traces back to the strategy he helped us define.</p>
+        <div class="test-author">
+          <div class="ta-initial">F</div>
+          <div><strong>Folarin Adeyemi</strong><span>Managing Director, Atlas Yard Capital</span></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p class="test-quote">We came in with a logo problem and left with clarity about who we actually are. The identity system he built has scaled with us far better than we expected.</p>
+        <div class="test-author">
+          <div class="ta-initial">C</div>
+          <div><strong>Chioma Eze</strong><span>Co-Founder, Euphoros Agrocorp Greentech</span></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p class="test-quote">The brand guidelines he handed off meant our small team could implement consistently without second-guessing every decision. That alone was worth the investment.</p>
+        <div class="test-author">
+          <div class="ta-initial">T</div>
+          <div><strong>Tunde Bakare</strong><span>Product Lead, ExamPQA</span></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p class="test-quote">What stood out was the process — workshops, research, real questions about our audience — before a single visual was made. That rigor shows in the final system.</p>
+        <div class="test-author">
+          <div class="ta-initial">A</div>
+          <div><strong>Amaka Nwosu</strong><span>Founder, early-stage client</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.testimonials{padding:30px 0 100px;}
+.test-head{margin-bottom:44px;text-align:center;}
+.test-head .eyebrow{justify-content:center;}
+.test-title{font-size:clamp(30px,4vw,42px);margin-top:14px;}
+.test-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+.test-card{background:var(--card-cream);border:1px solid var(--line);border-radius:20px;padding:32px;}
+.stars{color:var(--brass);font-size:14px;letter-spacing:2px;margin-bottom:16px;}
+.test-quote{font-family:var(--display);font-size:18px;line-height:1.55;color:var(--ink);margin-bottom:24px;}
+.test-author{display:flex;align-items:center;gap:14px;}
+.ta-initial{
+  width:42px;height:42px;border-radius:50%;background:var(--forest);color:var(--brass-light);
+  display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:600;font-size:16px;flex:none;
+}
+.test-author strong{display:block;font-size:14.5px;color:var(--ink);}
+.test-author span{font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);}
+
+@media (max-width:780px){.test-grid{grid-template-columns:1fr;}}
+</style>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="contact">
+  <div class="wrap contact-inner">
+    <div class="contact-copy">
+      <div class="eyebrow"><span class="mark"></span>Get In Touch</div>
+      <h2 class="contact-title">Let's Build Something Meaningful.</h2>
+      <p class="contact-sub">Tell me about your brand and where it's headed. I read every message and respond within 1–2 business days.</p>
+
+      <div class="contact-methods">
+        <a href="mailto:jonathanyusuf019@gmail.com" class="cm-item">
+          <span class="cm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 4h16v16H4z"/><path d="m4 4 8 9 8-9"/></svg></span>
+          <div><strong>Email</strong><span>jonathanyusuf019@gmail.com</span></div>
+        </a>
+        <a href="tel:+2348112418499" class="cm-item">
+          <span class="cm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></span>
+          <div><strong>Phone</strong><span>+234 811 241 8499</span></div>
+        </a>
+        <a href="https://www.instagram.com/a_d_vee" target="_blank" rel="noopener" class="cm-item">
+          <span class="cm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+          <div><strong>Instagram</strong><span>@a_d_vee</span></div>
+        </a>
+        <div class="cm-item">
+          <span class="cm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+          <div><strong>Based In</strong><span>Nigeria · Remote-friendly worldwide</span></div>
+        </div>
+      </div>
+    </div>
+
+    <form class="contact-form" onsubmit="event.preventDefault(); this.querySelector('.form-success').style.display='flex';">
+      <div class="form-row">
+        <div class="field"><label for="f-name">Your Name</label><input id="f-name" type="text" placeholder="Jane Doe" required></div>
+        <div class="field"><label for="f-email">Email Address</label><input id="f-email" type="email" placeholder="jane@brand.com" required></div>
+      </div>
+      <div class="field"><label for="f-company">Company / Brand</label><input id="f-company" type="text" placeholder="Brand or company name"></div>
+      <div class="field"><label for="f-msg">Tell Me About Your Project</label><textarea id="f-msg" rows="5" placeholder="What are you building, and what do you need help with?" required></textarea></div>
+      <button type="submit" class="btn btn-primary form-submit">Send Message
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+      <div class="form-success">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>
+        Thanks — your message has been noted. I'll reply by email soon.
+      </div>
+    </form>
+  </div>
+</section>
+
+<style>
+.contact{padding:30px 0 100px;}
+.contact-inner{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;}
+.contact-title{font-size:clamp(32px,4.4vw,48px);margin:14px 0 18px;}
+.contact-sub{color:var(--ink-soft);font-size:16px;line-height:1.6;max-width:420px;margin-bottom:38px;}
+.contact-methods{display:flex;flex-direction:column;gap:6px;}
+.cm-item{
+  display:flex;align-items:center;gap:16px;padding:16px 4px;border-top:1px solid var(--line);
+  transition:padding-left .2s ease;
+}
+.cm-item:hover{padding-left:8px;}
+.cm-icon{
+  width:42px;height:42px;flex:none;border-radius:12px;background:var(--card-cream);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;color:var(--forest);
+}
+.cm-icon svg{width:18px;height:18px;}
+.cm-item strong{display:block;font-size:14px;color:var(--ink);}
+.cm-item span{font-size:13.5px;color:var(--ink-soft);}
+
+.contact-form{
+  background:var(--forest);border-radius:24px;padding:42px;position:relative;
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.field{margin-bottom:18px;display:flex;flex-direction:column;gap:8px;}
+.field label{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:rgba(243,243,241,.65);}
+.field input,.field textarea{
+  background:rgba(243,243,241,.07);border:1px solid rgba(243,243,241,.18);border-radius:10px;
+  padding:13px 15px;color:var(--cream-text);font-family:var(--body);font-size:14.5px;resize:vertical;
+  transition:border-color .2s ease, background .2s ease;
+}
+.field input::placeholder,.field textarea::placeholder{color:rgba(243,243,241,.35);}
+.field input:focus,.field textarea:focus{border-color:var(--brass);background:rgba(243,243,241,.1);outline:none;}
+.form-submit{width:100%;justify-content:center;margin-top:6px;}
+.form-success{
+  display:none;align-items:center;gap:10px;margin-top:16px;color:var(--brass-light);
+  font-size:13.5px;font-family:var(--mono);
+}
+.form-success svg{width:18px;height:18px;flex:none;}
+
+@media (max-width:980px){
+  .contact-inner{grid-template-columns:1fr;}
+  .contact-form{padding:30px;}
+  .form-row{grid-template-columns:1fr;}
+}
+</style>
+
+<!-- ============ FAQ ============ -->
+<section class="faq">
+  <div class="wrap faq-inner">
+    <div class="eyebrow"><span class="mark"></span>Questions</div>
+    <h2 class="faq-title">Look Here</h2>
+
+    <div class="faq-list">
+      <div class="faq-item open">
+        <button class="faq-q">
+          What industries have you worked in?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5v14"/></svg>
+        </button>
+        <div class="faq-a"><p>Real estate and logistics investment, agriculture and green technology, and education technology — alongside independent work with founders and growing businesses across other sectors.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Can I download your resume or CV?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5v14"/></svg>
+        </button>
+        <div class="faq-a"><p>Yes — get in touch through the contact form or email and I'll send over a current resume along with relevant case studies.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Are you available for freelance projects?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5v14"/></svg>
+        </button>
+        <div class="faq-a"><p>Yes — I take on a limited number of brand strategy and identity engagements at a time, so reach out early if you have a timeline in mind.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          How do I navigate through your portfolio?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5v14"/></svg>
+        </button>
+        <div class="faq-a"><p>The Featured Work section above covers selected case studies. For the full set of projects and deeper process documentation, message me directly and I'll share the complete portfolio.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.faq{padding:30px 0 110px;}
+.faq-inner{max-width:760px;}
+.faq-title{font-size:clamp(30px,4vw,42px);margin:14px 0 40px;}
+.faq-list{display:flex;flex-direction:column;}
+.faq-item{border-top:1px solid var(--line);}
+.faq-item:last-child{border-bottom:1px solid var(--line);}
+.faq-q{
+  width:100%;display:flex;justify-content:space-between;align-items:center;
+  padding:24px 4px;font-family:var(--display);font-size:18px;color:var(--ink);text-align:left;
+  gap:18px;
+}
+.faq-q svg{width:18px;height:18px;flex:none;color:var(--brass-dark);transition:transform .3s ease;}
+.faq-item.open .faq-q svg{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+.faq-item.open .faq-a{max-height:200px;}
+.faq-a p{color:var(--ink-soft);font-size:15px;line-height:1.65;padding:0 4px 26px;max-width:600px;}
+</style>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item = btn.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!wasOpen) item.classList.add('open');
+  });
+});
+document.querySelectorAll('.jtab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.jtab').forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-work').style.display = tab.dataset.tab==='work' ? 'block':'none';
+    document.getElementById('panel-edu').style.display = tab.dataset.tab==='edu' ? 'block':'none';
+  });
+});
+
+const navBurger = document.getElementById('navBurger');
+const navMobile = document.getElementById('navMobile');
+navBurger.addEventListener('click', ()=>{
+  const isOpen = navMobile.classList.toggle('open');
+  navBurger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+});
+navMobile.querySelectorAll('a').forEach(link=>{
+  link.addEventListener('click', ()=>{
+    navMobile.classList.remove('open');
+    navBurger.setAttribute('aria-expanded','false');
+  });
+});
+</script>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="wrap footer-top-inner">
+      <h2 class="footer-headline">Let's Connect</h2>
+      <a href="#contact" class="btn btn-primary">Say Hello</a>
+    </div>
+  </div>
+
+  <div class="wrap footer-bottom">
+    <div class="footer-col footer-brand">
+      <a href="#top" class="logo light-logo"><span class="mk"></span>Llumine <span>Studios</span></a>
+      <p>Brand strategy and identity design for founders and growing businesses, based in Nigeria — working with brands worldwide.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Navigate</h5>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+    </div>
+    <div class="footer-col">
+      <h5>Connect</h5>
+      <a href="mailto:jonathanyusuf019@gmail.com">jonathanyusuf019@gmail.com</a>
+      <a href="tel:+2348112418499">+234 811 241 8499</a>
+      <a href="https://www.instagram.com/a_d_vee" target="_blank" rel="noopener">Instagram — @a_d_vee</a>
+    </div>
+  </div>
+  <div class="wrap footer-legal">
+    <span>© 2026 Llumine Studios. All rights reserved.</span>
+    <span>Designed &amp; built for Deuwel Yusuf</span>
+  </div>
+</footer>
+
+<style>
+.footer{background:var(--forest);color:var(--cream-text);}
+.footer-top{border-bottom:1px solid var(--line-dark);}
+.footer-top-inner{
+  padding:80px 0;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;
+}
+.footer-headline{color:var(--cream-text);font-size:clamp(36px,6vw,64px);}
+.footer-headline em{color:var(--brass-light);}
+
+.footer-bottom{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:50px;padding:60px 0 40px;}
+.logo.light-logo{color:var(--cream-text);margin-bottom:16px;display:inline-flex;}
+.logo.light-logo .mk::before,.logo.light-logo .mk::after{background:var(--brass-light);}
+.logo.light-logo span{color:var(--brass-light);}
+.footer-brand p{color:rgba(243,243,241,.6);font-size:14.5px;line-height:1.65;max-width:320px;}
+.footer-col h5{
+  font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;
+  color:rgba(243,243,241,.5);margin-bottom:18px;font-weight:600;
+}
+.footer-col a{
+  display:block;color:rgba(243,243,241,.78);font-size:14.5px;margin-bottom:12px;transition:color .2s ease;
+}
+.footer-col a:hover{color:var(--brass-light);}
+
+.footer-legal{
+  border-top:1px solid var(--line-dark);padding:24px 0;display:flex;justify-content:space-between;
+  font-family:var(--mono);font-size:11.5px;color:rgba(243,243,241,.45);flex-wrap:wrap;gap:10px;
+}
+
+@media (max-width:780px){
+  .footer-bottom{grid-template-columns:1fr;gap:34px;}
+  .footer-top-inner{flex-direction:column;align-items:flex-start;}
+}
+</style>
+
+
+<!-- ============ FULL PORTFOLIO OVERLAY ============ -->
+<div id="fullPortfolioOverlay" class="fp-overlay" role="dialog" aria-modal="true" aria-label="Full Portfolio">
+  <div class="fp-page">
+    <div class="fp-topbar">
+      <div class="wrap fp-topbar-inner">
+        <div>
+          <div class="eyebrow light"><span class="mark"></span>Complete Work</div>
+          <h2 class="fp-headline">Full Portfolio</h2>
+          <p class="fp-sub">25+ completed projects — brand strategy, logo design, and visual identity.</p>
+        </div>
+        <button class="fp-close" onclick="closeFullPortfolio()" aria-label="Close portfolio">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="wrap fp-grid-wrap">
+      <div class="fp-grid" id="fpGrid"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PROJECT DETAIL MODAL ============ -->
+<div id="projectModal" class="pm-overlay" role="dialog" aria-modal="true" aria-label="Project detail">
+  <div class="pm-panel">
+    <button class="pm-close" onclick="closeProject()" aria-label="Close project">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="pm-body" id="pmBody"></div>
+  </div>
+</div>
+
+<style>
+/* ===== FULL PORTFOLIO OVERLAY ===== */
+.fp-overlay{
+  position:fixed;inset:0;z-index:200;
+  background:var(--bg-cream);
+  overflow-y:auto;
+  transform:translateX(100%);
+  transition:transform .45s cubic-bezier(.25,.8,.25,1);
+}
+.fp-overlay.open{transform:translateX(0);}
+.fp-page{min-height:100vh;padding-bottom:80px;}
+.fp-topbar{
+  background:var(--forest);
+  padding:54px 0 46px;
+  margin-bottom:54px;
+  border-bottom:1px solid var(--line-dark);
+}
+.fp-topbar-inner{
+  display:flex;justify-content:space-between;align-items:flex-start;gap:30px;
+}
+.fp-headline{color:var(--cream-text);font-size:clamp(34px,5vw,58px);margin:10px 0 10px;}
+.fp-sub{color:rgba(243,243,241,.6);font-size:15px;max-width:480px;}
+.fp-close{
+  width:50px;height:50px;flex:none;border-radius:50%;
+  background:rgba(243,243,241,.1);color:var(--cream-text);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s ease;margin-top:6px;
+}
+.fp-close:hover{background:rgba(243,243,241,.2);}
+.fp-close svg{width:20px;height:20px;}
+
+.fp-grid-wrap{max-width:1240px;}
+.fp-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:26px;
+}
+
+/* ===== PORTFOLIO CARD ===== */
+.fp-card{
+  background:var(--card-cream);border:1px solid var(--line);border-radius:20px;
+  overflow:hidden;cursor:pointer;
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.fp-card:hover{transform:translateY(-6px);box-shadow:0 24px 44px -20px rgba(10,10,10,.25);}
+.fp-card-visual{position:relative;aspect-ratio:600/400;overflow:hidden;}
+.fp-card-visual svg{width:100%;height:100%;display:block;}
+.fp-card-tag{
+  position:absolute;bottom:12px;left:12px;
+  background:rgba(10,10,10,.55);color:var(--cream-text);
+  font-family:var(--mono);font-size:11px;letter-spacing:.03em;
+  padding:6px 11px;border-radius:999px;backdrop-filter:blur(4px);
+}
+.fp-card-info{padding:22px 22px 24px;}
+.fp-card-info h3{font-size:19px;margin-bottom:4px;}
+.fp-card-cat{
+  font-family:var(--mono);font-size:11px;color:var(--brass-dark);
+  text-transform:uppercase;letter-spacing:.04em;margin-bottom:12px;font-weight:600;
+}
+.fp-card-desc{color:var(--ink-soft);font-size:13.5px;line-height:1.55;margin-bottom:14px;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.fp-card-skills{display:flex;flex-wrap:wrap;gap:6px;}
+.fp-card-skills span{
+  font-family:var(--mono);font-size:10px;letter-spacing:.02em;text-transform:uppercase;
+  border:1px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--ink-soft);
+}
+.fp-card-arrow{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--brass-dark);font-weight:600;margin-top:14px;
+}
+.fp-card-arrow svg{width:12px;height:12px;}
+
+/* ===== PROJECT DETAIL MODAL ===== */
+.pm-overlay{
+  position:fixed;inset:0;z-index:300;
+  background:rgba(10,10,10,.65);backdrop-filter:blur(6px);
+  display:flex;align-items:flex-start;justify-content:center;
+  padding:40px 20px;
+  opacity:0;pointer-events:none;transition:opacity .3s ease;
+  overflow-y:auto;
+}
+.pm-overlay.open{opacity:1;pointer-events:all;}
+.pm-panel{
+  background:var(--bg-cream);border-radius:24px;width:100%;max-width:820px;
+  position:relative;padding:52px;
+  transform:translateY(30px);transition:transform .35s ease;
+  margin:auto;
+}
+.pm-overlay.open .pm-panel{transform:translateY(0);}
+.pm-close{
+  position:absolute;top:18px;right:18px;
+  width:42px;height:42px;border-radius:50%;
+  background:var(--card-cream);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s ease;
+}
+.pm-close:hover{background:var(--line);}
+.pm-close svg{width:18px;height:18px;}
+.pm-cat{
+  font-family:var(--mono);font-size:11.5px;color:var(--brass-dark);
+  text-transform:uppercase;letter-spacing:.06em;font-weight:600;margin-bottom:10px;
+}
+.pm-title{font-size:clamp(26px,4vw,38px);margin-bottom:6px;}
+.pm-role{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em;margin-bottom:28px;}
+.pm-divider{height:1px;background:var(--line);margin:28px 0;}
+.pm-section-label{
+  font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.07em;
+  color:var(--ink-faint);font-weight:600;margin-bottom:10px;
+}
+.pm-desc{color:var(--ink-soft);font-size:15.5px;line-height:1.7;margin-bottom:28px;}
+.pm-focus{color:var(--ink-soft);font-size:15px;line-height:1.65;margin-bottom:28px;}
+.pm-skills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;}
+.pm-skills span{
+  font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.02em;
+  border:1px solid var(--line);border-radius:999px;padding:6px 13px;color:var(--ink-soft);
+}
+.pm-visual{
+  width:100%;border-radius:16px;overflow:hidden;
+  background:var(--card-cream);border:1px solid var(--line);margin-bottom:20px;
+  aspect-ratio:16/9;
+}
+.pm-visual svg{width:100%;height:100%;display:block;}
+.pm-upwork{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--brass-dark);border:1px solid var(--brass-dark);
+  border-radius:999px;padding:10px 20px;font-weight:600;
+  transition:background .2s ease, color .2s ease;margin-top:6px;
+}
+.pm-upwork:hover{background:var(--brass-dark);color:#fff;}
+.pm-upwork svg{width:13px;height:13px;}
+.pm-img-note{
+  font-family:var(--mono);font-size:11px;color:var(--ink-faint);
+  margin-top:10px;letter-spacing:.03em;
+}
+
+@media(max-width:780px){
+  .fp-grid{grid-template-columns:1fr;}
+  .pm-panel{padding:32px 22px;}
+  .fp-topbar-inner{flex-direction:column;}
+}
+@media(max-width:980px){
+  .fp-grid{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+
+<script>
+// ===== PROJECT DATA — LOADED DYNAMICALLY FROM /projects/*.json =====
+// Projects are managed via the Admin CMS at /admin
+// Do NOT hardcode projects here — add them through the admin panel instead.
+
+let PROJECTS = [];
+
+// Fetch all project JSON files from the /projects/ directory
+async function loadProjects() {
+  try {
+    // We maintain a lightweight index file that lists all project filenames.
+    // The CMS writes project JSON files to /projects/*.json
+    // We fetch the index, then fetch each project file.
+    const indexRes = await fetch('/projects/index.json');
+    if (!indexRes.ok) throw new Error('No project index found');
+    const index = await indexRes.json(); // array of filenames e.g. ["atlas-yard-capital.json", ...]
+
+    const fetched = await Promise.all(
+      index.map(filename =>
+        fetch('/projects/' + filename).then(r => r.json()).catch(() => null)
+      )
+    );
+
+    PROJECTS = fetched
+      .filter(Boolean)
+      .sort((a, b) => (a.order || 99) - (b.order || 99));
+
+    renderFeaturedGrid();
+    renderPortfolioGrid();
+
+  } catch (err) {
+    // Fallback: use the seed data below if fetch fails (e.g. running locally without a server)
+    console.warn('Could not load projects from /projects/. Using seed data.', err);
+    PROJECTS = SEED_PROJECTS;
+    renderFeaturedGrid();
+    renderPortfolioGrid();
+  }
+}
+
+// ─── SEED DATA — shown as fallback if JSON files can't be fetched ───────────
+// This mirrors the existing 3 featured projects. Once deployed and the admin
+// is set up, all project data lives in /projects/*.json instead.
+const SEED_PROJECTS = [
+  {
+    id: 'atlas-yard-capital',
+    name: 'Atlas Yard Capital',
+    order: 1, year: '2024',
+    category: 'Real Estate & Logistics',
+    role: 'Brand Strategist · Identity Designer',
+    tag: 'Brand Strategy & Identity',
+    desc: 'A full brand strategy and identity system for a real estate and logistics investment firm, designed to communicate institutional authority across investor and operational audiences.',
+    focus: 'Institutional authority, precision, long-term confidence.',
+    skills: ['Brand Strategy', 'Identity Design', 'Logo Design', 'Brand Guidelines'],
+    color1: '#1C1C1A', accent: '#C8B896',
+    palette: [
+      { name: 'Atlas Black', hex: '#1C1C1A', textColor: 'light' },
+      { name: 'Capital Gold', hex: '#C8B896', textColor: 'dark' },
+      { name: 'Institutional White', hex: '#F5F3EF', textColor: 'dark' },
+      { name: 'Stone', hex: '#6A6860', textColor: 'light' }
+    ],
+    problem: { headline: 'Institutional authority without sacrificing accessibility.', body: 'Atlas Yard Capital needed to signal competence and scale to institutional investors while remaining legible and approachable to operational partners.' },
+    overview: 'Atlas Yard Capital is a real estate and logistics investment firm operating across emerging markets. The challenge was to build an identity that conveyed institutional authority without sacrificing accessibility.',
+    process: [
+      { title: 'Brand Audit & Discovery', desc: 'A full audit of the competitive landscape, existing assets, and stakeholder interviews.' },
+      { title: 'Positioning Framework', desc: 'Developed a positioning statement and messaging architecture that grounded all visual decisions.' },
+      { title: 'Identity Exploration', desc: 'Two distinct identity directions explored, converging into a single coherent system.' },
+      { title: 'System Build & Guidelines', desc: 'Delivered a comprehensive brand system with marks, colour, type, grid, and usage rules.' }
+    ],
+    deliverables: [
+      { name: 'Brand Strategy Document', desc: 'Positioning framework, messaging hierarchy, brand voice definition' },
+      { name: 'Logo System', desc: 'Primary mark, secondary wordmark, monogram, and all variations' },
+      { name: 'Brand Guidelines', desc: 'Comprehensive 40-page brand book covering all usage rules' },
+      { name: 'Stationery Suite', desc: 'Business cards, letterhead, envelopes, email signatures' }
+    ],
+    outcome: { headline: 'A brand that carries weight in investment rooms at every touchpoint.', body: 'The system scales across print, digital, and environmental applications without losing coherence or gravitas.' },
+    nextProject: 'euphoros-agrocorp-greentech',
+    svgContent: `<g transform="translate(300,175)"><rect x="-50" y="-45" width="100" height="90" rx="4" fill="none" stroke="#C8B896" stroke-width="2"/><line x1="-50" y1="-10" x2="50" y2="-10" stroke="#C8B896" stroke-width="1" opacity=".4"/><line x1="-50" y1="20" x2="50" y2="20" stroke="#C8B896" stroke-width="1" opacity=".4"/><circle r="6" cx="0" cy="-28" fill="#C8B896" opacity=".8"/></g><text x="300" y="265" text-anchor="middle" font-family="Inter,sans-serif" font-size="24" fill="#F3F3F1" font-weight="700">ATLAS YARD</text><text x="300" y="292" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="3" fill="#C8B896">CAPITAL</text>`,
+    color2: '#0A0A0A'
+  },
+  {
+    id: 'euphoros-agrocorp-greentech',
+    name: 'Euphoros Agrocorp Greentech',
+    order: 2, year: '2024',
+    category: 'Agriculture & Green Technology',
+    role: 'Brand Strategist · Identity Designer',
+    tag: 'Brand Strategy & Identity',
+    desc: 'A growth-oriented brand architecture and mark for a sustainability-driven agritech company, designed to flex across packaging and field materials.',
+    focus: 'Scientific rigour, natural authenticity — without contradiction.',
+    skills: ['Brand Strategy', 'Logo Design', 'Brand Architecture', 'Packaging Design', 'Brand Guidelines'],
+    color1: '#666666', color2: '#2E2E2E', accent: '#FF7A47',
+    palette: [
+      { name: 'Forest', hex: '#1A2418', textColor: 'light' },
+      { name: 'Harvest Green', hex: '#4E7B42', textColor: 'light' },
+      { name: 'Seedling', hex: '#C8D8B8', textColor: 'dark' },
+      { name: 'Soil White', hex: '#F2EEE4', textColor: 'dark' }
+    ],
+    problem: { headline: 'Scientific rigour and natural authenticity — together.', body: 'Euphoros needed to earn trust from institutional agricultural partners and farming communities simultaneously. The identity had to hold both without contradiction.' },
+    overview: 'Euphoros Agrocorp Greentech is an agricultural technology company bridging sustainable farming with modern supply chain infrastructure. The brand needed to project both scientific rigour and natural authenticity.',
+    process: [
+      { title: 'Audience Mapping', desc: 'Deep research into both institutional and community audiences revealed the core tension and opportunity.' },
+      { title: 'Strategic Platform', desc: "Defined a brand platform around 'Grounded Science' — a company that works with the land, not just on it." },
+      { title: 'Visual Language Development', desc: 'Built from natural textures and geometric precision — organic form with structural discipline.' },
+      { title: 'Packaging & Application', desc: "Identity extended into packaging for Euphoros's direct-to-consumer product line." }
+    ],
+    deliverables: [
+      { name: 'Brand Strategy Document', desc: 'Audience mapping, positioning framework, brand platform definition' },
+      { name: 'Logo System', desc: 'Primary mark, icon, wordmark, and bi-lingual adaptations' },
+      { name: 'Packaging Design', desc: 'Full packaging system for 6 product SKUs' },
+      { name: 'Brand Guidelines', desc: 'Comprehensive brand and packaging standards book' }
+    ],
+    outcome: { headline: 'A brand that commands confidence in both B2B and B2C contexts simultaneously.', body: 'The system communicates scientific credibility while remaining warm and accessible.' },
+    nextProject: 'exampqa',
+    svgContent: `<g transform="translate(300,175)"><circle r="50" fill="none" stroke="#FF7A47" stroke-width="2"/><path d="M0 -34 C 22 -10, 22 20, 0 34 C -22 20, -22 -10, 0 -34 Z" fill="none" stroke="#FF7A47" stroke-width="2.5"/><line x1="0" y1="-34" x2="0" y2="34" stroke="#FF7A47" stroke-width="1" opacity=".5"/></g><text x="300" y="265" text-anchor="middle" font-family="Inter,sans-serif" font-size="30" fill="#F3F3F1" font-weight="700">EUPHOROS</text><text x="300" y="292" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="3" fill="#FF7A47">AGROCORP GREENTECH</text>`
+  },
+  {
+    id: 'exampqa',
+    name: 'ExamPQA',
+    order: 3, year: '2023',
+    category: 'Education Technology',
+    role: 'Brand Strategist · Identity Designer',
+    tag: 'Brand Strategy & Identity',
+    desc: 'A clear, trustworthy identity for an exam-prep platform, with a guideline system built so a lean team could implement it consistently at speed.',
+    focus: 'Academic seriousness. Student appeal. No compromise.',
+    skills: ['Brand Strategy', 'Identity Design', 'Brand Guidelines', 'Logo Design'],
+    color1: '#262626', color2: '#0A0A0A', accent: '#FF4400',
+    palette: [
+      { name: 'Midnight', hex: '#191620', textColor: 'light' },
+      { name: 'Academic Blue', hex: '#4B44A8', textColor: 'light' },
+      { name: 'Distinction', hex: '#E8C84A', textColor: 'dark' },
+      { name: 'Paper', hex: '#F4F2FA', textColor: 'dark' }
+    ],
+    problem: { headline: 'Academic seriousness. Student appeal. No compromise.', body: 'ExamPQA needed a brand parents and institutions could trust while genuinely resonating with students navigating high-stakes exams.' },
+    overview: 'ExamPQA is an education technology platform providing structured past-question and exam preparation resources to students across Africa. The challenge was positioning an academically serious product as approachable and modern.',
+    process: [
+      { title: 'Student Research', desc: 'Interviews revealed existing revision tools felt either boring or untrustworthy — a clear gap.' },
+      { title: 'Positioning Strategy', desc: "Defined ExamPQA's position as 'The Serious Student's Tool' — rigorous and genuinely motivating." },
+      { title: 'Identity Design', desc: 'Visual system draws from academic tradition with modern energy through bold type and distinctive colour.' },
+      { title: 'Digital System', desc: 'Identity stress-tested across app UI, social campaigns, and all marketing touchpoints.' }
+    ],
+    deliverables: [
+      { name: 'Brand Strategy Document', desc: 'Positioning, messaging framework, tone of voice guide' },
+      { name: 'Logo & Identity System', desc: 'Primary mark, icon mark, wordmark system and variations' },
+      { name: 'Brand Guidelines', desc: 'Full standards document including digital-first usage rules' },
+      { name: 'App UI Concepts', desc: 'Onboarding flow and key screen design concepts' }
+    ],
+    outcome: { headline: 'A brand that earns institutional trust while genuinely appealing to students.', body: 'The identity creates a clear sense of rigour and momentum. The system scales across app, social, and marketing.' },
+    nextProject: 'atlas-yard-capital',
+    svgContent: `<g transform="translate(300,170)"><rect x="-44" y="-44" width="88" height="88" rx="14" fill="none" stroke="#FF4400" stroke-width="2"/><path d="M -18 0 L -4 16 L 20 -16" fill="none" stroke="#FF7A47" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g><text x="300" y="266" text-anchor="middle" font-family="Inter,sans-serif" font-size="34" fill="#F3F3F1" font-weight="700">ExamPQA</text><text x="300" y="293" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="3" fill="#FF4400">EDUCATION TECHNOLOGY</text>`
+  }
+];
+
+
+// ===== RENDER PORTFOLIO GRID =====
+function renderPortfolioGrid() {
+  const grid = document.getElementById('fpGrid');
+  grid.innerHTML = PROJECTS.map(p => `
+    <article class="fp-card" onclick="openProject('${p.id}')" role="button" tabindex="0" aria-label="View ${p.name} project">
+      <div class="fp-card-visual">
+        <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="fpg${p.id}" x1="0" y1="0" x2="600" y2="400">
+            <stop offset="0" stop-color="${p.color1}"/>
+            <stop offset="1" stop-color="${p.color2}"/>
+          </linearGradient></defs>
+          <rect width="600" height="400" fill="url(#fpg${p.id})"/>
+          ${p.svgContent}
+        </svg>
+        <span class="fp-card-tag">${p.tag}</span>
+      </div>
+      <div class="fp-card-info">
+        <p class="fp-card-cat">${p.category}</p>
+        <h3>${p.name}</h3>
+        <p class="fp-card-desc">${p.desc}</p>
+        <div class="fp-card-skills">${p.skills.slice(0,4).map(s=>`<span>${s}</span>`).join('')}</div>
+        <div class="fp-card-arrow">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </div>
+    </article>
+  `).join('');
+
+  // keyboard accessibility
+  grid.querySelectorAll('.fp-card').forEach(card => {
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+    });
+  });
+}
+
+// ===== OPEN / CLOSE FULL PORTFOLIO PAGE =====
+function openFullPortfolio() {
+  renderPortfolioGrid();
+  const overlay = document.getElementById('fullPortfolioOverlay');
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  overlay.focus();
+}
+function closeFullPortfolio() {
+  document.getElementById('fullPortfolioOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ===== RENDER FEATURED WORK GRID (homepage section) =====
+function renderFeaturedGrid() {
+  const grid = document.getElementById('featuredWorkGrid');
+  if (!grid) return;
+  // Show top 3 by order
+  const featured = PROJECTS.slice(0, 3);
+  grid.innerHTML = featured.map(p => {
+    const svgContent = p.svgContent || `<text x="300" y="230" text-anchor="middle" font-family="Inter,sans-serif" font-size="28" fill="#F3F3F1" font-weight="700">${p.name}</text>`;
+    const c1 = p.color1 || '#1A1A1A';
+    const c2 = p.color2 || '#0A0A0A';
+    return `
+    <article class="work-card" onclick="openProject('${p.id}')" style="cursor:pointer;" title="View ${p.name} case study">
+      <div class="work-visual">
+        <svg viewBox="0 0 600 460" class="case-svg" aria-hidden="true">
+          <defs><linearGradient id="fg${p.id}" x1="0" y1="0" x2="600" y2="460">
+            <stop offset="0" stop-color="${c1}"/>
+            <stop offset="1" stop-color="${c2}"/>
+          </linearGradient></defs>
+          <rect width="600" height="460" fill="url(#fg${p.id})"/>
+          ${svgContent}
+        </svg>
+        ${p.heroImage ? `<img src="${p.heroImage}" alt="${p.name}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/>` : ''}
+        ${p.heroImageUrl ? `<img src="${p.heroImageUrl}" alt="${p.name}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/>` : ''}
+        <span class="work-tag">${p.tag || 'Brand Strategy & Identity'}</span>
+      </div>
+      <div class="work-info">
+        <h3>${p.name}</h3>
+        <p class="work-industry">${p.category}</p>
+        <p class="work-desc">${p.desc}</p>
+        <div class="work-services">
+          ${(p.skills || []).slice(0,3).map(s => `<span>${s}</span>`).join('')}
+        </div>
+      </div>
+    </article>`;
+  }).join('');
+}
+
+// ===== OPEN PROJECT DETAIL — Full Case Study =====
+function openProject(id) {
+  const p = PROJECTS.find(x => x.id === id);
+  if (!p) return;
+
+  const body = document.getElementById('pmBody');
+
+  // Build gallery HTML
+  const gallery = (p.gallery || []).filter(g => g.image || g.imageUrl);
+  const galleryHTML = gallery.length ? `
+    <div class="pm-section-label">Project Gallery</div>
+    <div class="pm-gallery">
+      ${gallery.map(g => `
+        <figure class="pm-gallery-item">
+          <img src="${g.image || g.imageUrl}" alt="${g.caption || p.name}" loading="lazy" />
+          ${g.caption ? `<figcaption>${g.caption}</figcaption>` : ''}
+        </figure>
+      `).join('')}
+    </div>
+  ` : '';
+
+  // Build palette HTML
+  const paletteHTML = (p.palette || []).length ? `
+    <div class="pm-section-label">Brand Colour Palette</div>
+    <div class="pm-palette">
+      ${(p.palette || []).map(sw => `
+        <div class="pm-swatch" style="background:${sw.hex}">
+          <span class="pm-swatch-name" style="color:${sw.textColor === 'dark' ? '#0A0A0A' : '#F3F3F1'}">${sw.name}</span>
+          <span class="pm-swatch-hex" style="color:${sw.textColor === 'dark' ? 'rgba(10,10,10,.55)' : 'rgba(243,243,241,.55)'}">${sw.hex}</span>
+        </div>
+      `).join('')}
+    </div>
+  ` : '';
+
+  // Build process HTML
+  const processHTML = (p.process || []).length ? `
+    <div class="pm-section-label">Process & Methodology</div>
+    <div class="pm-process">
+      ${(p.process || []).map((step, i) => `
+        <div class="pm-step">
+          <span class="pm-step-num">0${i + 1}</span>
+          <div>
+            <div class="pm-step-title">${step.title}</div>
+            <div class="pm-step-desc">${step.desc}</div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  ` : '';
+
+  // Build deliverables HTML
+  const delivHTML = (p.deliverables || []).length ? `
+    <div class="pm-section-label">Final Deliverables</div>
+    <div class="pm-deliverables">
+      ${(p.deliverables || []).map(d => `
+        <div class="pm-deliverable">
+          <span class="pm-del-name">${d.name}</span>
+          <span class="pm-del-desc">${d.desc}</span>
+        </div>
+      `).join('')}
+    </div>
+  ` : '';
+
+  // Build outcome HTML
+  const outcomeHTML = (p.outcome) ? `
+    <div class="pm-divider"></div>
+    <div class="pm-section-label">Outcome</div>
+    <p class="pm-outcome-headline">${p.outcome.headline}</p>
+    ${p.outcome.body ? `<p class="pm-desc" style="margin-top:10px">${p.outcome.body}</p>` : ''}
+  ` : '';
+
+  // Hero image
+  const heroSrc = p.heroImage || p.heroImageUrl;
+  const heroHTML = heroSrc
+    ? `<div class="pm-visual"><img src="${heroSrc}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"/></div>`
+    : `<div class="pm-visual">
+        <svg viewBox="0 0 820 460" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="pmg${p.id}" x1="0" y1="0" x2="820" y2="460">
+            <stop offset="0" stop-color="${p.color1 || '#1A1A1A'}"/>
+            <stop offset="1" stop-color="${p.color2 || '#0A0A0A'}"/>
+          </linearGradient></defs>
+          <rect width="820" height="460" fill="url(#pmg${p.id})"/>
+          <g transform="translate(110,0)">${p.svgContent || ''}</g>
+        </svg>
+      </div>`;
+
+  body.innerHTML = `
+    <p class="pm-cat">${p.category}</p>
+    <h2 class="pm-title">${p.name}</h2>
+    <p class="pm-role">${p.role}</p>
+
+    ${heroHTML}
+
+    <div class="pm-divider"></div>
+
+    ${p.problem ? `
+      <div class="pm-section-label">The Brief</div>
+      <p class="pm-brief-headline">${p.problem.headline}</p>
+      <p class="pm-desc">${p.problem.body}</p>
+      <div class="pm-divider"></div>
+    ` : ''}
+
+    <div class="pm-section-label">Overview</div>
+    <p class="pm-desc">${p.overview || p.desc}</p>
+
+    ${p.focus ? `<div class="pm-section-label">Focus</div><p class="pm-focus">${p.focus}</p>` : ''}
+
+    <div class="pm-section-label">Skills & Services</div>
+    <div class="pm-skills">${(p.skills || []).map(s => `<span>${s}</span>`).join('')}</div>
+
+    ${galleryHTML}
+    ${paletteHTML}
+
+    <div class="pm-divider"></div>
+
+    ${processHTML}
+    ${delivHTML}
+    ${outcomeHTML}
+
+    <div class="pm-divider"></div>
+    <a href="https://www.upwork.com/freelancers/~01bad9f0d11b9a9384?mp_source=share" target="_blank" rel="noopener" class="pm-upwork">
+      View Design Images on Upwork
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+  `;
+
+  const modal = document.getElementById('projectModal');
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+
+function closeProject() {
+  document.getElementById('projectModal').classList.remove('open');
+  // only restore scroll if full portfolio is also not open
+  if (!document.getElementById('fullPortfolioOverlay').classList.contains('open')) {
+    document.body.style.overflow = '';
+  }
+}
+
+// Close on overlay backdrop click
+document.getElementById('projectModal').addEventListener('click', function(e){
+  if (e.target === this) closeProject();
+});
+
+// Keyboard close
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    if (document.getElementById('projectModal').classList.contains('open')) closeProject();
+    else if (document.getElementById('fullPortfolioOverlay').classList.contains('open')) closeFullPortfolio();
+  }
+});
+
+// ===== INIT =====
+loadProjects();
+
+</script>
+
+</body>
+</html>

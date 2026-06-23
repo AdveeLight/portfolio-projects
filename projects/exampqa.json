@@ -1,0 +1,47 @@
+{
+  "id": "exampqa",
+  "name": "ExamPQA",
+  "order": 3,
+  "year": "2023",
+  "category": "Education Technology",
+  "role": "Brand Strategist · Identity Designer",
+  "tag": "Brand Strategy & Identity",
+  "desc": "A clear, trustworthy identity for an exam-prep platform, with a guideline system built so a lean team could implement it consistently at speed.",
+  "focus": "Academic seriousness. Student appeal. No compromise.",
+  "skills": ["Brand Strategy", "Identity Design", "Brand Guidelines", "Digital Design", "Logo Design"],
+  "heroImage": "",
+  "heroImageUrl": "",
+  "gallery": [],
+  "palette": [
+    { "name": "Midnight", "hex": "#191620", "textColor": "light" },
+    { "name": "Academic Blue", "hex": "#4B44A8", "textColor": "light" },
+    { "name": "Distinction", "hex": "#E8C84A", "textColor": "dark" },
+    { "name": "Paper", "hex": "#F4F2FA", "textColor": "dark" }
+  ],
+  "problem": {
+    "headline": "Academic seriousness. Student appeal. No compromise.",
+    "body": "ExamPQA needed a brand that parents and institutions could trust while genuinely resonating with students navigating high-stakes exams. The risk was over-indexing in either direction — too corporate for students, too casual for institutions."
+  },
+  "overview": "ExamPQA is an education technology platform providing structured past-question and exam preparation resources to students across Africa. The challenge was to position an academically serious product as approachable and modern — signalling trustworthiness to parents and institutions while remaining compelling for students.",
+  "process": [
+    { "title": "Student Research", "desc": "Interviews with students across key exam markets revealed a consistent frustration: existing revision tools felt either boring or untrustworthy. ExamPQA had an opportunity to be both rigorous and genuinely motivating." },
+    { "title": "Positioning Strategy", "desc": "We defined ExamPQA's position as 'The Serious Student's Tool' — not a gamified learning app, not a textbook publisher, but a focused, high-performance preparation platform." },
+    { "title": "Identity Design", "desc": "The visual system draws from academic tradition — structure, clarity, hierarchy — while applying a modern energy through bold typography and a distinctive colour accent." },
+    { "title": "Digital System", "desc": "The identity was stress-tested across app UI, social campaigns, and marketing materials to ensure consistency across all digital touchpoints." }
+  ],
+  "deliverables": [
+    { "name": "Brand Strategy Document", "desc": "Positioning, messaging framework, tone of voice guide" },
+    { "name": "Logo & Identity System", "desc": "Primary mark, icon mark, wordmark system and variations" },
+    { "name": "Brand Guidelines", "desc": "Full standards document including digital-first usage rules" },
+    { "name": "App UI Concepts", "desc": "Onboarding flow and key screen design concepts" },
+    { "name": "Marketing Assets", "desc": "Social media campaigns, print flyers, school posters" },
+    { "name": "Investor Pitch Deck", "desc": "Designed pitch deck for Series A fundraising" }
+  ],
+  "outcome": {
+    "headline": "A brand that earns trust from institutions while genuinely appealing to students.",
+    "body": "The identity creates a clear sense of rigour and momentum — communicating that this is a platform serious about outcomes. The system scales across app UI, social, and marketing without losing its essential character."
+  },
+  "color1": "#191620",
+  "accent": "#4B44A8",
+  "nextProject": "atlas-yard-capital"
+}
