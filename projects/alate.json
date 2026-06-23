@@ -1,28 +1,5 @@
 {
-  "id": "alate",
-  "name": "Alate Fashion",
-  "category": "Female Fashion Brand",
-  "industry": "Female Fashion Brand",
-  "year": "",
-  "role": "Brand Strategist · Identity Designer",
-  "tag": "Brand Identity & Guidelines",
-  "desc": "Alate Fashion is a fashion brand with a unique female target market. They wanted a brand identity that communicated elegance and comfort, remaining timeless and appealing to a wide range of income earners. Our logotype and font pairs made sure to capture the elegance of the brand, while the colour palette was carefully chosen for comfort and accessibility with a friendly tone. The client was promptly impressed and quite satisfied with their decision to work with me.",
-  "brief": "Alate Fashion is a fashion brand with a unique female target market. They wanted a brand identity that communicated elegance and comfort, remaining timeless and appealing to a wide range of income earners. Our logotype and font pairs made sure to capture the elegance of the brand, while the colour palette was carefully chosen for comfort and accessibility with a friendly tone. The client was promptly impressed and quite satisfied with their decision to work with me.",
-  "overview": "Alate Fashion is a fashion brand with a unique female target market. They wanted a brand identity that communicated elegance and comfort, remaining timeless and appealing to a wide range of income earners. Our logotype and font pairs made sure to capture the elegance of the brand, while the colour palette was carefully chosen for comfort and accessibility with a friendly tone. The client was promptly impressed and quite satisfied with their decision to work with me.",
-  "focus": "Elegance, comfort, timelessness — accessible to a wide income range.",
-  "process": [],
-  "deliverables": [
-    "Brand Identity",
-    "Brand Identity Design",
-    "Branding",
-    "Brand Strategy",
-    "Fashion & Beauty",
-    "Logo Design",
-    "Brand Identity & Guidelines",
-    "Adobe Photoshop",
-    "Adobe Illustrator",
-    "Mockup"
-  ],
+  "heroImage": "",
   "skills": [
     "Brand Identity",
     "Brand Identity Design",
@@ -35,12 +12,38 @@
     "Adobe Illustrator",
     "Mockup"
   ],
-  "outcome": "",
+  "accent": "#B8965A",
+  "name": "Alate Fashion",
+  "accentLight": "#D4B483",
   "color1": "#1A1510",
   "color2": "#0A0A0A",
-  "accent": "#B8965A",
-  "accentLight": "#D4B483",
+  "process": [
+    "1. Discovery Call to establish Brand Foundations (Mission, Vision, Purpose, Values, Tone of Voice)",
+    "2. "
+  ],
+  "desc": "Alate Fashion is a fashion brand with a unique female target market. They wanted a brand identity that communicated elegance and comfort, remaining timeless and appealing to a wide range of income earners. ",
+  "outcome": "Our process and execution resulted in a properly crafted identity that embodied the nature of ALATE FAshion. The client was impressed and satisfied with the results.",
+  "deliverables": [
+    "Brand Identity",
+    "Brand Identity Design",
+    "Branding",
+    "Brand Strategy",
+    "Fashion & Beauty",
+    "Logo Design",
+    "Brand Identity & Guidelines",
+    "Adobe Photoshop",
+    "Adobe Illustrator",
+    "Mockup"
+  ],
   "svgContent": "<g transform=\"translate(300,165)\"><rect x=\"-52\" y=\"-42\" width=\"104\" height=\"84\" rx=\"8\" fill=\"none\" stroke=\"#B8965A\" stroke-width=\"2\"/><line x1=\"-52\" y1=\"0\" x2=\"52\" y2=\"0\" stroke=\"#B8965A\" stroke-width=\"1\" opacity=\".4\"/><text x=\"0\" y=\"6\" text-anchor=\"middle\" font-family=\"Inter,sans-serif\" font-size=\"28\" fill=\"#F3F3F1\" font-style=\"italic\" font-weight=\"600\">A</text></g><text x=\"300\" y=\"268\" text-anchor=\"middle\" font-family=\"Inter,sans-serif\" font-size=\"28\" fill=\"#F3F3F1\" font-weight=\"700\">ALATE FASHION</text><text x=\"300\" y=\"294\" text-anchor=\"middle\" font-family=\"JetBrains Mono,monospace\" font-size=\"11\" letter-spacing=\"3\" fill=\"#B8965A\">BRAND IDENTITY</text><g transform=\"translate(200,330)\"><rect width=\"200\" height=\"40\" rx=\"6\" fill=\"#B8965A\" opacity=\".2\"/></g>",
-  "heroImage": "",
-  "images": []
+  "role": "Brand Strategist · Identity Designer",
+  "focus": "Elegance, comfort, timelessness — accessible to a wide income range.",
+  "images": [],
+  "overview": "I designed a logotype and font pairs that made sure to capture the elegance of the brand, while the colour palette was carefully chosen for comfort and accessibility with a friendly tone. ",
+  "brief": "Alate Fashion wanted a Brand Identity that appeared elegant but freindly. They didn't want to appear too sophisticated to their audience. ",
+  "tag": "Logo and Brand Identity",
+  "id": "alate",
+  "year": "2023",
+  "category": "Female Fashion Brand",
+  "industry": "Fashion"
 }
