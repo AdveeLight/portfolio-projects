@@ -4,7 +4,7 @@ backend:
 
 # This makes the Netlify Identity widget log people in via Git Gateway,
 # so anyone you invite as a site collaborator can publish through /admin.
-publish_mode: editorial_workflow
+publish_mode: simple_workflow
 
 media_folder: "uploads"
 public_folder: "/uploads"
